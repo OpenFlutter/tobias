@@ -9,12 +9,21 @@
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 
++(void)handlePayment:(NSURL *)url{
+  
+}
+
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"getPlatformVersion" isEqualToString:call.method]) {
+  if ([@"pay" isEqualToString:call.method]) {
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
   } else {
     result(FlutterMethodNotImplemented);
   }
 }
+
+-(void) pay:(FlutterMethodCall*)call result:(FlutterResult)result{
+
+}
+
 
 @end

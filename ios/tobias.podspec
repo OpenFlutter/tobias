@@ -8,13 +8,14 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 A Flutter plugin For Alipay.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/OpenFlutter/tobias'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'JarvanMo' => 'jarvan.mo@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
+  s.dependency 'AliPay','~> 2.0'
   
   s.ios.deployment_target = '8.0'
 end

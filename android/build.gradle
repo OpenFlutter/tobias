@@ -48,4 +48,6 @@ android {
 dependencies {
     api files('libs/alipaySdk-20180601.jar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.24.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
 }

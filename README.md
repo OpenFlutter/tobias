@@ -3,12 +3,40 @@
 A Flutter plugin For AliPay.
 
 ## Getting Started
+I highly recommend that you read this [article](https://docs.open.alipay.com/204/105051/) before using tobias.
+Tobias helps you to do something but not all.
+For example, you have to configure your URL Scheme on iOS.
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+## Libraries Used In Tobias
+We'd better know what tobias used.
+For Android:
+```gradle
+    api files('libs/alipaySdk-20180601.jar')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.60'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.24.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
+```
+For iOS:
+```ruby
+  s.dependency 'OpenAliPaySDK', '~> 15.5'
+```
 
-For help on editing plugin code, view the [documentation](https://flutter.io/developing-packages/#edit-plugin-package).
-
+## Add Tobias To `pubspec.yaml`
+Add these following code in your `pubspec.yaml`:
+```yaml
+dependencies:
+  tobias: ^0.1.2
+```
+## How Use
+It's every easy.Tobias provides two ways if you want a payment:
+```dart
+import 'package:tobias/tobias.dart' as tobias;
+tobias.payWithOrder(yourOrder);
+tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
+```
+The result is map contains results from AliPay.The result also contains an external filed named `platform` which
+means the result is from `iOS` or `android`.
+You can also call `tobias.version()` when returns a map contains `version` and `platform`.
 ## LICENSE
 
 

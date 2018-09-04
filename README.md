@@ -36,6 +36,8 @@ tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
 ```
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
+> NOTE:Tobias use pay_V2.
+
 You can also call `tobias.version()` when returns a map contains `version` and `platform`.
 ## LICENSE
 

@@ -60,7 +60,7 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
 
         return async(CommonPool) {
             val alipay = PayTask(registrar.activity())
-            alipay.version ?: "-1.0"
+            alipay.version ?: ""
         }.await()
     }
 }

@@ -16,10 +16,12 @@
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"pay" isEqualToString:call.method]) {
       [self pay:call result:result];
-  } else {
+  } else if([@"version" isEqualToString:call.method]){
     result(FlutterMethodNotImplemented);
   }
 }
+
+
 
 -(void) pay:(FlutterMethodCall*)call result:(FlutterResult)result{
 
@@ -35,15 +37,30 @@
 
 -(void) _pay:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
 
-    [[AlipaySDK defaultService] payOrder:call.arguments fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
-        //NSLog(@"%@",resultDic);
+   
+    [[AlipaySDK defaultService] auth_V2WithInfo:urlScheme
+                                     fromScheme:urlScheme
+                                       callback:^(NSDictionary *resultDic) {
 
-        NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
-        [mutableDictionary setValue:@"platform" forKey:@"iOS"];
-        result(mutableDictionary);
-    }];
+                                           NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
+                                           [mutableDictionary setValue:@"platform" forKey:@"iOS"];
+                                           result(mutableDictionary);
+                                       }];
+
 }
 
+-(void) getVersion:(FlutterMethodCall*)call result:(FlutterResult)result{
+
+    NSString *version = [AlipaySDK defaultService].currentVersion;
+    if(version == nil){
+        version = @"";
+    }
+    result(@{
+
+            @"platform" :@"iOS",
+            @"version" : version
+    });
+}
 
 -(NSString*)fetchUrlScheme{
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];

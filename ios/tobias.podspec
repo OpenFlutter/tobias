@@ -15,7 +15,7 @@ A Flutter plugin For Alipay.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'AliPay','~> 2.0'
+  s.dependency 'OpenAliPaySDK', '~> 15.5'
   
   s.ios.deployment_target = '8.0'
 end

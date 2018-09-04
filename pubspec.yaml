@@ -1,8 +1,8 @@
 name: tobias
 description: A Flutter plugin For AliPay.
 version: 0.0.1
-author:
-homepage:
+author: JarvanMo <jarvan.mo@gmail.com>
+homepage: https://github.com/OpenFlutter/tobias
 
 
 environment:

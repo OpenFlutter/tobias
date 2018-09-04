@@ -25,7 +25,7 @@ For iOS:
 Add these following code in your `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.1.2
+  tobias: ^0.0.1
 ```
 ## How Use
 It's every easy.Tobias provides two ways if you want a payment:

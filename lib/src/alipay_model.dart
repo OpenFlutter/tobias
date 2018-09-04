@@ -24,7 +24,7 @@ class AliPayModel{
     this.version:"1.0"
   }):assert(appId != null && appId.isNotEmpty);
 
-  String  params(){
+  String  order(){
      String realTimestamp =timestamp;
     if(realTimestamp == null || realTimestamp.trim().isEmpty ){
 

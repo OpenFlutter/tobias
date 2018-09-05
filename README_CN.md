@@ -1,47 +1,45 @@
 ![logo](./arts/tobias_logo.png)
 
-
-[中文移步这里](./README_CN.md)
-## What's Tobias
-Tobias is flutter plugin for AliPaySDK.
+## Tobias是什么
+Tobias是一个为支付宝支付SDK做的Flutter插件。
 
 ## Getting Started
-I highly recommend that you read this [article](https://docs.open.alipay.com/204/105051/) before using tobias.
-Tobias helps you to do something but not all.
-For example, you have to configure your URL Scheme on iOS.
+在使用前强烈阅读[官方接入指南](https://docs.open.alipay.com/204/105051/)。
+Tobias 可以完成一部分但不是全部工作。
+例如，在iOS上你还要设置URL Scheme。
 
-## Libraries Used In Tobias
-We'd better know what tobias used.
-For Android:
+## Tobias所依赖的库
+很有必要知道Tobias使用到了哪些技术。
+Android上:
 ```gradle
     api files('libs/alipaySdk-20180601.jar')
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.60'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.24.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
 ```
-For iOS:
+iOS上:
 ```ruby
   s.dependency 'OpenAliPaySDK', '~> 15.5'
 ```
 
-## Add Tobias To `pubspec.yaml`
-Add these following code in your `pubspec.yaml`:
+## 将Tobias 添加至 `pubspec.yaml`
+将下面的代码添加到 `pubspec.yaml`:
 ```yaml
 dependencies:
   tobias: ^0.0.1
 ```
-## How To Use
-It's every easy.Tobias provides two ways if you want a payment:
+## 如何使用
+Tobias使用起来很简单.Tobias提供了两种方式:
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
 tobias.payWithOrder(yourOrder);
 tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
 ```
-The result is map contains results from AliPay.The result also contains an external filed named `platform` which
-means the result is from `iOS` or `android`.
-> NOTE:Tobias use pay_V2.
+返回值是一个包含支付宝支付结果的`map`。其中还包含了一个额外的 `platform`字段，
+它的值为 `iOS` 或 `android`。
+> 注意:Tobias 使用的是 pay_V2.
 
-You can also call `tobias.version()` when returns a map contains `version` and `platform`.
+你可以通过调用 `tobias.version()` 来获取对应平上的SDK版本，其返回值是一个包含 `version` 和 `platform`的map。
 ## LICENSE
 
 

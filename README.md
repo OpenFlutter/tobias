@@ -41,7 +41,7 @@ The result is map contains results from AliPay.The result also contains an exter
 means the result is from `iOS` or `android`.
 > NOTE:Tobias use pay_V2.
 
-You can also call `tobias.version()` when returns a map contains `version` and `platform`.
+You can also call `tobias.version()` which returns a map contains `version` and `platform`.
 ## LICENSE
 
 

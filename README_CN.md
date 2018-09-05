@@ -3,7 +3,7 @@
 ## Tobias是什么
 Tobias是一个为支付宝支付SDK做的Flutter插件。
 
-## Getting Started
+## 开始
 在使用前强烈阅读[官方接入指南](https://docs.open.alipay.com/204/105051/)。
 Tobias 可以完成一部分但不是全部工作。
 例如，在iOS上你还要设置URL Scheme。

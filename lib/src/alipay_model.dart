@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
+
 ///a data container for payment
 ///[appId] the id you applied on AliPay
 
-class AliPayModel{
-
+class AliPayModel {
   final String appId;
   final String bizContent;
   final String charset;
@@ -13,22 +13,20 @@ class AliPayModel{
   final String version;
   final String sign;
 
-  AliPayModel({
-    @required this.appId,
-    @required this.sign,
-    this.bizContent:"alipay sdk powered by tobias",
-    this.charset:"utf-8",
-    this.method:"alipay.trade.app.pay",
-    this.timestamp,
-    this.isRSA2:true,
-    this.version:"1.0"
-  }):assert(appId != null && appId.isNotEmpty);
+  AliPayModel(
+      {@required this.appId,
+      @required this.sign,
+      this.bizContent: "alipay sdk powered by tobias",
+      this.charset: "utf-8",
+      this.method: "alipay.trade.app.pay",
+      this.timestamp,
+      this.isRSA2: true,
+      this.version: "1.0"})
+      : assert(appId != null && appId.isNotEmpty);
 
-  String  order(){
-     String realTimestamp =timestamp;
-    if(realTimestamp == null || realTimestamp.trim().isEmpty ){
-
-    }
+  String order() {
+    String realTimestamp = timestamp;
+    if (realTimestamp == null || realTimestamp.trim().isEmpty) {}
 
     String signType = isRSA2 ? "RSA2" : "RSA";
     return "app_id=$appId"
@@ -40,5 +38,4 @@ class AliPayModel{
         "&version=$version"
         "&sign=$sign";
   }
-
 }

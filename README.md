@@ -28,7 +28,7 @@ For iOS:
 Add these following code in your `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.0.1
+  tobias: ^0.0.2
 ```
 ## How To Use
 It's every easy.Tobias provides two ways if you want a payment:
@@ -40,6 +40,28 @@ tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
 > NOTE:Tobias use pay_V2.
+
+On iOS, add url schema name `alipay`.
+On Xcode GUI:
+![url_schema](./arts/url_schema.png)
+
+
+in your `info.plist`:
+```
+<array>
+   		<dict>
+   			<key>CFBundleTypeRole</key>
+   			<string>Editor</string>
+   			<key>CFBundleURLName</key>
+   			<string>alipay</string>
+   			<key>CFBundleURLSchemes</key>
+   			<array>
+   				<string>tobias_example</string>
+   			</array>
+   		</dict>
+   	</array>
+
+```
 
 You can also call `tobias.version()` which returns a map contains `version` and `platform`.
 ## LICENSE

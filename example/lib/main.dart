@@ -87,15 +87,15 @@ class _MyAppState extends State<MyApp> {
           child: new Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              new Text("输入调用字符串"),
+              new Text("input order info"),
               new TextField(
                   maxLines: 15, onChanged: onChanged, controller: myController),
-              new RaisedButton(onPressed: callAlipay, child: new Text("调用支付宝")),
+              new RaisedButton(onPressed: callAlipay, child: new Text("pay")),
               new RaisedButton(
                   onPressed: () {
                     _loadData();
                   },
-                  child: new Text("重新下单")),
+                  child: new Text("reopen an order")),
               new Text(_payResult == null ? "" : _payResult.toString())
             ],
           ),

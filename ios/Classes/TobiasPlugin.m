@@ -1,4 +1,4 @@
-#import "TobiasPlugin.h""
+#import "TobiasPlugin.h"
 
 @implementation TobiasPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -38,7 +38,7 @@
 -(void) _pay:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
 
    
-    [[AlipaySDK defaultService] auth_V2WithInfo:urlScheme
+    [[AlipaySDK defaultService] auth_V2WithInfo:call.arguments
                                      fromScheme:urlScheme
                                        callback:^(NSDictionary *resultDic) {
 

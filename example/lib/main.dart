@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
-import 'package:tobias/tobias.dart';
+import 'package:tobias/tobias.dart' as tobias;
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() => runApp(new MyApp());
 
@@ -12,31 +12,67 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String _payInfo = "";
+  Map _payResult;
 
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
+  final myController = new TextEditingController();
+
+  void _loadData() {
+    _payInfo = "";
+    _payResult = {};
+
+    http
+        .post("http://120.79.190.42:8071/pay/test_pay/create",
+            body: json.encode({"fee": 1, "title": "test pay"}))
+        .then((http.Response response) {
+      if (response.statusCode == 200) {
+        print(response.body);
+        var map = json.decode(response.body);
+        int flag = map["flag"];
+        if (flag == 0) {
+          var result = map["result"];
+          setState(() {
+            _payInfo = result["credential"]["payInfo"];
+            myController.text = _payInfo;
+          });
+          return;
+        }
+      }
+      throw new Exception("创建订单失败");
+    }).catchError((e) {
+      setState(() {
+        _payInfo = e.toString();
+        myController.text = _payInfo;
+      });
+    });
+
+    setState(() {});
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
+  @override
+  initState() {
+    super.initState();
+
+    _loadData();
+  }
+
+  onChanged(String value) {
+    _payInfo = value;
+  }
+
+  callAlipay() async {
+    Map payResult;
     try {
-      platformVersion ="s";
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      print("The pay info is : " + _payInfo);
+      payResult = await tobias.payWithOrder(_payInfo);
+    } on Exception catch (e) {
+      payResult = {};
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _payResult = payResult;
     });
   }
 
@@ -45,10 +81,24 @@ class _MyAppState extends State<MyApp> {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: const Text('Plugin example app'),
+          title: new Text('Tobias example'),
         ),
-        body: new Center(
-          child: new Text('Running on: $_platformVersion\n'),
+        body: new SingleChildScrollView(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new Text("输入调用字符串"),
+              new TextField(
+                  maxLines: 15, onChanged: onChanged, controller: myController),
+              new RaisedButton(onPressed: callAlipay, child: new Text("调用支付宝")),
+              new RaisedButton(
+                  onPressed: () {
+                    _loadData();
+                  },
+                  child: new Text("重新下单")),
+              new Text(_payResult == null ? "" : _payResult.toString())
+            ],
+          ),
         ),
       ),
     );

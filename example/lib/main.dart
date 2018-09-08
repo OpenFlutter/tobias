@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
     Map payResult;
     try {
       print("The pay info is : " + _payInfo);
-      payResult = await tobias.payWithOrder(_payInfo);
+      payResult = await tobias.pay(_payInfo);
     } on Exception catch (e) {
       payResult = {};
     }

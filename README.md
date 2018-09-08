@@ -32,14 +32,13 @@ For iOS:
 Add the following code in your `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.0.2
+  tobias: ^0.0.3
 ```
 ## Usage
-Tobias provides two ways if you want a payment:
+It's simple,pass Tobias your order info from server :
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
 tobias.payWithOrder(yourOrder);
-tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
 ```
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.

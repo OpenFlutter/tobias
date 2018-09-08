@@ -26,10 +26,10 @@ iOS上:
 将下面的代码添加到 `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.0.2
+  tobias: ^0.0.3
 ```
 ## 如何使用
-Tobias使用起来很简单.Tobias提供了两种方式:
+Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
 tobias.payWithOrder(yourOrder);

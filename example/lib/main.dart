@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-
-import 'package:tobias/tobias.dart' as tobias;
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:tobias/tobias.dart' as tobias;
 
 void main() => runApp(new MyApp());
 
@@ -34,7 +34,6 @@ class _MyAppState extends State<MyApp> {
           setState(() {
             _payInfo = result["credential"]["payInfo"];
             myController.text = _payInfo;
-
           });
           return;
         }
@@ -65,8 +64,7 @@ class _MyAppState extends State<MyApp> {
     Map payResult;
     try {
       print("The pay info is : " + _payInfo);
-      payResult = await tobias.payWithOrder(_payInfo);
-      print("-->$payResult");
+      payResult = await tobias.pay(_payInfo);
     } on Exception catch (e) {
       payResult = {};
     }
@@ -98,7 +96,7 @@ class _MyAppState extends State<MyApp> {
                     _loadData();
                   },
                   child: new Text("reopen an order")),
-              new Text(_payResult == null ? "no results" : "result:${_payResult.toString()}")
+              new Text(_payResult == null ? "" : _payResult.toString())
             ],
           ),
         ),

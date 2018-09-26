@@ -2,15 +2,19 @@
 
 
 [中文移步这里](./README_CN.md)
+
 ## What's Tobias
-Tobias is flutter plugin for AliPaySDK.
+
+Tobias is a  flutter plugin for AliPaySDK.
 
 ## Getting Started
+
 I highly recommend that you read this [article](https://docs.open.alipay.com/204/105051/) before using tobias.
 Tobias helps you to do something but not all.
 For example, you have to configure your URL Scheme on iOS.
 
 ## Libraries Used In Tobias
+
 We'd better know what tobias used.
 For Android:
 ```gradle
@@ -25,30 +29,29 @@ For iOS:
 ```
 
 ## Add Tobias To `pubspec.yaml`
-Add these following code in your `pubspec.yaml`:
+Add the following code in your `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.0.2
+  tobias: ^0.0.3
 ```
-## How To Use
-It's every easy.Tobias provides two ways if you want a payment:
+## Usage
+It's simple,pass Tobias your order info from server :
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
 tobias.payWithOrder(yourOrder);
-tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
 ```
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
 > NOTE:Tobias use pay_V2.
 
-On iOS, add url schema name `alipay`.
+For iOS,yout have to add url schema named `alipay`.
 On Xcode GUI:
 ![url_schema](./arts/url_schema.png)
 
 
 in your `info.plist`:
 ```
-<array>
+     <array>
    		<dict>
    			<key>CFBundleTypeRole</key>
    			<string>Editor</string>
@@ -64,6 +67,8 @@ in your `info.plist`:
 ```
 
 You can also call `tobias.version()` which returns a map contains `version` and `platform`.
+
+
 ## LICENSE
 
 

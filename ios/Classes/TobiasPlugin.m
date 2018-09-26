@@ -41,7 +41,9 @@ __weak TobiasPlugin* __tobiasPlugin;
   if ([@"pay" isEqualToString:call.method]) {
       [self pay:call result:result];
   } else if([@"version" isEqualToString:call.method]){
-    result(FlutterMethodNotImplemented);
+      [self getVersion:call result:result];
+  } else{
+      result(FlutterMethodNotImplemented);
   }
 }
 

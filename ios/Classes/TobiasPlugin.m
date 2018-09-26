@@ -74,7 +74,9 @@ __weak TobiasPlugin* __tobiasPlugin;
 -(void)onResultReceived:(NSDictionary*)resultDic{
 
     if(self.callback!=nil){
-        self.callback(resultDic);
+        NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
+        [mutableDictionary setValue:@"platform" forKey:@"iOS"];
+        self.callback(mutableDictionary);
         self.callback = nil;
     }
     

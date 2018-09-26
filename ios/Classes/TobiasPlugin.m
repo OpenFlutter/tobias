@@ -1,6 +1,31 @@
 #import "TobiasPlugin.h"
 
+
+__weak TobiasPlugin* __tobiasPlugin;
+
+@interface TobiasPlugin()
+
+@property (readwrite,copy,nonatomic) FlutterResult callback;
+
+@end
+
+
+
 @implementation TobiasPlugin
+
+-(id)init{
+    if(self = [super init]){
+        
+        __tobiasPlugin  = self;
+        
+    }
+    return self;
+}
+
+-(void)dealloc{
+    
+}
+
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
       methodChannelWithName:@"com.jarvanmo/tobias"
@@ -9,9 +34,8 @@
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 
-+(void)handlePayment:(NSURL *)url{
-  
-}
+
+
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"pay" isEqualToString:call.method]) {
@@ -21,7 +45,40 @@
   }
 }
 
++(BOOL)handleOpenURL:(NSURL*)url{
+  
+    if(!__tobiasPlugin)return NO;
+    return [__tobiasPlugin handleOpenURL:url];
+    
+}
 
+
+-(BOOL)handleOpenURL:(NSURL*)url{
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+
+        __weak TobiasPlugin* __self = self;
+        
+     
+        
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+             [__self onResultReceived:resultDic];
+        }];
+        
+
+        return YES;
+    }
+    return NO;
+}
+
+-(void)onResultReceived:(NSDictionary*)resultDic{
+
+    if(self.callback!=nil){
+        self.callback(resultDic);
+        self.callback = nil;
+    }
+    
+}
 
 -(void) pay:(FlutterMethodCall*)call result:(FlutterResult)result{
 
@@ -31,21 +88,30 @@
         return;
     }
 
+ 
     [self _pay:call result:result urlScheme:urlScheme];
 
 }
 
 -(void) _pay:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
 
-   
-    [[AlipaySDK defaultService] auth_V2WithInfo:call.arguments
-                                     fromScheme:urlScheme
-                                       callback:^(NSDictionary *resultDic) {
+    self.callback = result;
+//    [[AlipaySDK defaultService] auth_V2WithInfo:call.arguments
+//                                     fromScheme:urlScheme
+//                                       callback:^(NSDictionary *resultDic) {
+//
+//                                           NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
+//                                           [mutableDictionary setValue:@"platform" forKey:@"iOS"];
+//
+//                                           result(mutableDictionary);
+//                                       }];
 
-                                           NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
-                                           [mutableDictionary setValue:@"platform" forKey:@"iOS"];
-                                           result(mutableDictionary);
-                                       }];
+    [[AlipaySDK defaultService] payOrder:call.arguments fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
+//        NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
+//        [mutableDictionary setValue:@"platform" forKey:@"iOS"];
+//        
+//        result(mutableDictionary);
+    }];
 
 }
 

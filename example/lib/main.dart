@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
           setState(() {
             _payInfo = result["credential"]["payInfo"];
             myController.text = _payInfo;
+
           });
           return;
         }
@@ -65,6 +66,7 @@ class _MyAppState extends State<MyApp> {
     try {
       print("The pay info is : " + _payInfo);
       payResult = await tobias.payWithOrder(_payInfo);
+      print("-->$payResult");
     } on Exception catch (e) {
       payResult = {};
     }
@@ -96,7 +98,7 @@ class _MyAppState extends State<MyApp> {
                     _loadData();
                   },
                   child: new Text("reopen an order")),
-              new Text(_payResult == null ? "" : _payResult.toString())
+              new Text(_payResult == null ? "no results" : "result:${_payResult.toString()}")
             ],
           ),
         ),

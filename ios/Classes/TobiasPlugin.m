@@ -77,7 +77,7 @@ __weak TobiasPlugin* __tobiasPlugin;
 
     if(self.callback!=nil){
         NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:resultDic];
-        [mutableDictionary setValue:@"platform" forKey:@"iOS"];
+        [mutableDictionary setValue:@"iOS" forKey:@"platform"];
         self.callback(mutableDictionary);
         self.callback = nil;
     }
@@ -134,10 +134,10 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 -(NSString*)fetchUrlScheme{
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
-    NSArray* types = [infoDic objectForKey:@"CFBundleURLTypes"];
+    NSArray* types = infoDic[@"CFBundleURLTypes"];
     for(NSDictionary* dic in types){
-        if([@"alipay" isEqualToString: [dic objectForKey:@"CFBundleURLName"]]){
-            return [dic objectForKey:@"CFBundleURLSchemes"][0];
+        if([@"alipay" isEqualToString:dic[@"CFBundleURLName"]]){
+            return dic[@"CFBundleURLSchemes"][0];
         }
     }
     return nil;

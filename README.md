@@ -38,10 +38,34 @@ dependencies:
 It's simple,pass Tobias your order info from server :
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
-tobias.payWithOrder(yourOrder);
+tobias.pay(yourOrder);
 ```
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
+Result sample:
+```dart
+{
+result: partner="2088411752388544"&seller_id="etongka123@163.com"&out_trade_no="180926084213001"&subject="test pay"&total_fee="0.01"&notify_url="http://127.0.0.1/alipay001"&service="mobile.securitypay.pay"&payment_type="1"&_input_charset="utf-8"&it_b_pay="30m"&return_url="m.alipay.com"&success="true"&sign_type="RSA"&sign="nCZ8MDhsNvYNAbrLZJZ2VUy6vydgAp+JCq1aQo6ORDYtI9zwtnja3qNGQNiDJCuktoIj7fSTM487XhjPDqnOreZjIA1GJpxu9D1I3nMXIn1M7DfZ0noDwXcYZ438/jbYac7g8mhpwdKGweLCAni9mO3Y6q3iBFkox8i9PcsGxJY=",
+resultStatus: 9000,
+ memo: ,
+ platform:iOS
+}
+
+```
+In order to handle the result of payment, you have to add the following code in your `AppDelegate.m` file:
+```objective-c
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+
+    return  [TobiasPlugin handleOpenURL:url];
+}
+
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
+
+    return  [TobiasPlugin handleOpenURL:url];
+}
+
+```
 > NOTE:Tobias use pay_V2.
 
 For iOS,yout have to add url schema named `alipay`.

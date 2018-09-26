@@ -62,6 +62,30 @@ tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
 ```
 
 你可以通过调用 `tobias.version()` 来获取对应平上的SDK版本，其返回值是一个包含 `version` 和 `platform`的map。
+结果示例:
+```dart
+{
+result: partner="2088411752388544"&seller_id="etongka123@163.com"&out_trade_no="180926084213001"&subject="test pay"&total_fee="0.01"&notify_url="http://127.0.0.1/alipay001"&service="mobile.securitypay.pay"&payment_type="1"&_input_charset="utf-8"&it_b_pay="30m"&return_url="m.alipay.com"&success="true"&sign_type="RSA"&sign="nCZ8MDhsNvYNAbrLZJZ2VUy6vydgAp+JCq1aQo6ORDYtI9zwtnja3qNGQNiDJCuktoIj7fSTM487XhjPDqnOreZjIA1GJpxu9D1I3nMXIn1M7DfZ0noDwXcYZ438/jbYac7g8mhpwdKGweLCAni9mO3Y6q3iBFkox8i9PcsGxJY=",
+resultStatus: 9000,
+ memo: ,
+ platform:iOS
+}
+
+```
+为了处理支付结果, 你要在你的`AppDelegate.m`文件中添加如下代码:
+```objective-c
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+
+    return  [TobiasPlugin handleOpenURL:url];
+}
+
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
+
+    return  [TobiasPlugin handleOpenURL:url];
+}
+
+```
 ## LICENSE
 
 

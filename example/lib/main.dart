@@ -65,6 +65,7 @@ class _MyAppState extends State<MyApp> {
     try {
       print("The pay info is : " + _payInfo);
       payResult = await tobias.pay(_payInfo);
+      print("--->$payResult");
     } on Exception catch (e) {
       payResult = {};
     }

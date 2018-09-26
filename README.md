@@ -32,7 +32,7 @@ For iOS:
 Add the following code in your `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.0.3
+  tobias: ^0.0.4
 ```
 ## Usage
 It's simple,pass Tobias your order info from server :

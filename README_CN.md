@@ -26,7 +26,7 @@ iOS上:
 将下面的代码添加到 `pubspec.yaml`:
 ```yaml
 dependencies:
-  tobias: ^0.0.3
+  tobias: ^0.0.4
 ```
 ## 如何使用
 Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:

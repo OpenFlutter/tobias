@@ -54,6 +54,8 @@ resultStatus: 9000,
 ```
 In order to handle the result of payment, you have to add the following code in your `AppDelegate.m` file:
 ```objective-c
+#import <tobias/TobiasPlugin.h>
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
 
     return  [TobiasPlugin handleOpenURL:url];

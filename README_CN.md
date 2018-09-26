@@ -74,6 +74,8 @@ resultStatus: 9000,
 ```
 为了处理支付结果, 你要在你的`AppDelegate.m`文件中添加如下代码:
 ```objective-c
+#import <tobias/TobiasPlugin.h>
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
 
     return  [TobiasPlugin handleOpenURL:url];

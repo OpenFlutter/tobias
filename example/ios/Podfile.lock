@@ -1,9 +1,9 @@
 PODS:
   - Flutter (1.0.0)
-  - OpenAliPaySDK (15.5.5)
+  - "OpenAliPaySDK (15.5.5+3)"
   - tobias (0.0.1):
     - Flutter
-    - OpenAliPaySDK (~> 15.5)
+    - "OpenAliPaySDK (~> 15.5.5+3)"
 
 DEPENDENCIES:
   - Flutter (from `.symlinks/flutter/ios`)
@@ -21,8 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  OpenAliPaySDK: 14d122169be42e1d88bffedc273892132a3a9dbe
-  tobias: 1d76eb8755e93201d5130845d7f5267af23a26b7
+  OpenAliPaySDK: 7930c116579dbdfdec923830f44ad284d28d5edb
+  tobias: e51019d8c1b378a444b7c38156360de738351b26
 
 PODFILE CHECKSUM: 1e5af4103afd21ca5ead147d7b81d06f494f51a2
 

@@ -5,11 +5,9 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.async
 import com.alipay.sdk.app.PayTask
+import kotlinx.coroutines.experimental.*
 import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
 
 
 class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
@@ -32,35 +30,36 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
 
     private fun pay(call: MethodCall, result: Result) {
 
-        launch(UI) {
+
+        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT,  {
             val payResult = doPayTask(call.arguments as String)
             result.success( payResult.plus( "platform" to "android"))
-        }
+        })
     }
 
     private suspend fun doPayTask(orderInfo: String): Map<String, String> {
 
-        return async(CommonPool) {
+        return GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT,  {
             val alipay = PayTask(registrar.activity())
             alipay.payV2(orderInfo, true) ?: mapOf<String, String>()
-        }.await()
+        }).await()
     }
 
     private fun version(call: MethodCall, result: Result) {
-        launch(UI) {
+        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT, {
             val version = doGetVersionTask()
             result.success(mapOf(
                     "platform" to "android",
                     "version" to version
             ))
-        }
+        })
     }
 
     private suspend fun doGetVersionTask(): String {
 
-        return async(CommonPool) {
+        return GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT, {
             val alipay = PayTask(registrar.activity())
             alipay.version ?: ""
-        }.await()
+        }).await()
     }
 }

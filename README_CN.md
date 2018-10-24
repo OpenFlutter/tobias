@@ -19,7 +19,7 @@ Android上:
 ```
 iOS上:
 ```ruby
-  s.dependency 'OpenAliPaySDK', '~> 15.5'
+  s.dependency 'OpenAliPaySDK', '~> 15.5.5+4'
 ```
 
 ## 将Tobias 添加至 `pubspec.yaml`

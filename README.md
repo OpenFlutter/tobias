@@ -25,7 +25,7 @@ For Android:
 ```
 For iOS:
 ```ruby
-  s.dependency 'OpenAliPaySDK', '~> 15.5'
+  s.dependency 'OpenAliPaySDK', '~> 15.5.5+4'
 ```
 
 ## Add Tobias To `pubspec.yaml`

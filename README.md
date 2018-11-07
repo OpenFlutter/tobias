@@ -1,5 +1,5 @@
 ![logo](./arts/tobias_logo.png)
-
+![pub package](https://img.shields.io/pub/v/tobias.svg)
 
 [中文移步这里](./README_CN.md)
 
@@ -18,22 +18,17 @@ For example, you have to configure your URL Scheme on iOS.
 We'd better know what tobias used.
 For Android:
 ```gradle
-    api files('libs/alipaySdk-20180601.jar')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.60'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.24.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 ```
+Tobias uses *alipaySdk-15.5.7-20181023110917.aar* in Android.
 For iOS:
 ```ruby
-  s.dependency 'OpenAliPaySDK', '~> 15.5.5+4'
+  s.dependency 'OpenAliPaySDK', '~> 15.5.7'
 ```
 
-## Add Tobias To `pubspec.yaml`
-Add the following code in your `pubspec.yaml`:
-```yaml
-dependencies:
-  tobias: ^0.0.4
-```
+
 ## Usage
 It's simple,pass Tobias your order info from server :
 ```dart

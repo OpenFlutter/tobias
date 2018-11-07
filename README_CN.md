@@ -1,4 +1,5 @@
 ![logo](./arts/tobias_logo.png)
+![pub package](https://img.shields.io/pub/v/tobias.svg)
 
 ## Tobias是什么
 Tobias是一个为支付宝支付SDK做的Flutter插件。
@@ -12,22 +13,16 @@ Tobias 可以完成一部分但不是全部工作。
 很有必要知道Tobias使用到了哪些技术。
 Android上:
 ```gradle
-    api files('libs/alipaySdk-20180601.jar')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.60'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.24.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 ```
 iOS上:
 ```ruby
-  s.dependency 'OpenAliPaySDK', '~> 15.5.5+4'
+  s.dependency 'OpenAliPaySDK', '~> 15.5.7'
 ```
 
-## 将Tobias 添加至 `pubspec.yaml`
-将下面的代码添加到 `pubspec.yaml`:
-```yaml
-dependencies:
-  tobias: ^0.0.4
-```
+
 ## 如何使用
 Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:
 ```dart

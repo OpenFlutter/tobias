@@ -22,6 +22,9 @@ iOS上:
   s.dependency 'OpenAliPaySDK', '~> 15.5.7'
 ```
 
+### 捐助
+请作者喝杯咖啡。
+<img src="./arts/wx.jpeg" height="300">  <img src="./arts/ali.jpeg" height="300">
 
 ## 如何使用
 Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:

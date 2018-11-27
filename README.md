@@ -89,6 +89,9 @@ in your `info.plist`:
 
 You can also call `tobias.version()` which returns a map contains `version` and `platform`.
 
+### Donate
+Buy the writer a cup of coffee。
+<img src="./arts/wx.jpeg" height="300">  <img src="./arts/ali.jpeg" height="300">
 
 ## LICENSE
 

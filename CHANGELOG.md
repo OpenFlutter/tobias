@@ -1,3 +1,7 @@
+## 0.0.7
+* android构建工具升级
+* AliPaySDK升级至15.5.9
+
 ## 0.0.6
 * android构建工具升级
 * AliPaySDK升级至15.5.7

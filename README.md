@@ -13,20 +13,8 @@ I highly recommend that you read this [article](https://docs.open.alipay.com/204
 Tobias helps you to do something but not all.
 For example, you have to configure your URL Scheme on iOS.
 
-## Libraries Used In Tobias
 
-We'd better know what tobias used.
-For Android:
-```gradle
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
-```
-Tobias uses *alipaySdk-15.5.7-20181023110917.aar* in Android.
-For iOS:
-```ruby
-  s.dependency 'OpenAliPaySDK', '~> 15.5.7'
-```
+
 
 
 ## Usage

@@ -1,5 +1,6 @@
 ## 0.0.8
 * kotlin升级至1.3.21
+* kotlinx-coroutines升级至1.1.1
 
 ## 0.0.7
 * android构建工具升级

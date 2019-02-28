@@ -3,6 +3,8 @@
 
 [中文移步这里](./README_CN.md)
 
+QQ Group：892398530。
+
 ## What's Tobias
 
 Tobias is a  flutter plugin for AliPaySDK.

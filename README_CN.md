@@ -1,6 +1,8 @@
 ![logo](./arts/tobias_logo.png)
 ![pub package](https://img.shields.io/pub/v/tobias.svg)
 
+QQ 群：892398530。
+
 ## Tobias是什么
 Tobias是一个为支付宝支付SDK做的Flutter插件。
 
@@ -17,8 +19,7 @@ Tobias 可以完成一部分但不是全部工作。
 Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
-tobias.payWithOrder(yourOrder);
-tobias.pay(tobias.AliPayModel(appId: "appId",sign: "sign"));
+tobias.pay(yourOrder);
 ```
 返回值是一个包含支付宝支付结果的`map`。其中还包含了一个额外的 `platform`字段，
 它的值为 `iOS` 或 `android`。

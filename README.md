@@ -2,6 +2,7 @@
 ![pub package](https://img.shields.io/pub/v/tobias.svg)
 
 [中文移步这里](./README_CN.md)
+QQ Group：892398530。
 
 ## What's Tobias
 

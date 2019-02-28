@@ -1,5 +1,6 @@
 ![logo](./arts/tobias_logo.png)
 ![pub package](https://img.shields.io/pub/v/tobias.svg)
+QQ 群：892398530。
 
 ## Tobias是什么
 Tobias是一个为支付宝支付SDK做的Flutter插件。

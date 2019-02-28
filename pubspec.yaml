@@ -1,5 +1,5 @@
 name: tobias
-description: Tobias makes possible using AliPay with native AliPaySDK in Flutter.Enjoy ALiPaySDK in Flutter.
+description: A Flutter plugin for allowing users to authenticate or pay with native Android&iOS AliPay SDKs.
 version: 0.0.8
 author: JarvanMo <jarvan.mo@gmail.com>
 homepage: https://github.com/OpenFlutter/tobias

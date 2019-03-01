@@ -20,7 +20,6 @@ class _MyAppState extends State<MyApp> {
   void _loadData() {
     _payInfo = "";
     _payResult = {};
-
     http
         .post("http://120.79.190.42:8071/pay/test_pay/create",
             body: json.encode({"fee": 1, "title": "test pay"}))

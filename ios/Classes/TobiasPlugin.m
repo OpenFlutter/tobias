@@ -122,7 +122,7 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 -(void) _auth:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
     self.callback = result;
-  [[AlipaySDK defaultService] auth_V2WithInfo:authInfoStr
+  [[AlipaySDK defaultService] auth_V2WithInfo:call.arguments
                                          fromScheme:urlScheme
                                            callback:^(NSDictionary *resultDic) {}];
 }

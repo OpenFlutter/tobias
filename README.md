@@ -19,7 +19,7 @@ For example, you have to configure your URL Scheme on iOS.
 
 
 
-## Usage
+## Payment
 It's simple,pass Tobias your order info from server :
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
@@ -37,6 +37,14 @@ resultStatus: 9000,
 }
 
 ```
+
+## Auth
+
+```
+    tobias.auth("your auth str");
+
+```
+
 In order to handle the result of payment, you have to add the following code in your `AppDelegate.m` file:
 ```objective-c
 #import <tobias/TobiasPlugin.h>

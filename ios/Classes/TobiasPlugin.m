@@ -117,7 +117,7 @@ __weak TobiasPlugin* __tobiasPlugin;
     __weak TobiasPlugin* __self = self;
 
     [[AlipaySDK defaultService] payOrder:call.arguments fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
-        [__self onAuthResultReceived:resultDic];
+        [__self onPayResultReceived:resultDic];
     }];
 
 }

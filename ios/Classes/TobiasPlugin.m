@@ -113,18 +113,25 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 -(void) _pay:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
     self.callback = result;
+    
+    __weak TobiasPlugin* __self = self;
 
     [[AlipaySDK defaultService] payOrder:call.arguments fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
-
+        [__self onAuthResultReceived:resultDic];
     }];
 
 }
 
 -(void) _auth:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
     self.callback = result;
+    
+    __weak TobiasPlugin* __self = self;
+    
   [[AlipaySDK defaultService] auth_V2WithInfo:call.arguments
                                          fromScheme:urlScheme
-                                           callback:^(NSDictionary *resultDic) {}];
+                                           callback:^(NSDictionary *resultDic) {
+                                               [__self onAuthResultReceived:resultDic];
+                                           }];
 }
 
 -(void) getVersion:(FlutterMethodCall*)call result:(FlutterResult)result{

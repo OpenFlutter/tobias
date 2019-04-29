@@ -42,7 +42,8 @@ __weak TobiasPlugin* __tobiasPlugin;
       [self pay:call result:result];
   } else if([@"version" isEqualToString:call.method]){
       [self getVersion:call result:result];
-  } else if([@"version" isEqualToString:call.method]){
+  } else if([@"auth" isEqualToString:call.method]){
+      [self _auth:call result:result];
   } else{
       result(FlutterMethodNotImplemented);
   }
@@ -122,7 +123,13 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 }
 
--(void) _auth:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
+-(void) _auth:(FlutterMethodCall*)call result:(FlutterResult)result {
+    
+    NSString* urlScheme = [self fetchUrlScheme];
+    if(!urlScheme){
+        result([FlutterError errorWithCode:@"AliPay UrlScheme Not Found" message:@"Config AliPay First" details:nil]);
+        return;
+    }
     self.callback = result;
     
     __weak TobiasPlugin* __self = self;

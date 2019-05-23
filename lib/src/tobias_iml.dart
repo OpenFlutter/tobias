@@ -9,7 +9,7 @@ Future<Map> pay(String order) async {
 }
 
 Future<Map> payInSandBox(String order) async {
-  return await _channel.invokeMethod("pay", order);
+  return await _channel.invokeMethod("pay_in_sand_box", order);
 }
 
 

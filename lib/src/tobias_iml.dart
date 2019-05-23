@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 
@@ -9,7 +10,10 @@ Future<Map> pay(String order) async {
 }
 
 Future<Map> payInSandBox(String order) async {
-  return await _channel.invokeMethod("pay_in_sand_box", order);
+  if(Platform.isAndroid){
+    return await _channel.invokeMethod("pay_in_sand_box", order);
+  }
+  return pay(order);
 }
 
 

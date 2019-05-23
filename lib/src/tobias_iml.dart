@@ -4,13 +4,15 @@ import 'package:flutter/services.dart';
 
 final MethodChannel _channel = const MethodChannel('com.jarvanmo/tobias');
 
-Future<Map> pay(String order) async {
-  return await _channel.invokeMethod("pay", order);
+/// [evn] only supports Android due to native AliPaySDK
+Future<Map> pay(String order,{AliPayEvn evn = AliPayEvn.ONLINE}) async {
+  return await _channel.invokeMethod("pay", {
+    "order":order,
+    "payEnv":evn.index
+  });
 }
 
-Future<Map> payInSandBox(String order) async {
-  return await _channel.invokeMethod("pay_in_sand_box", order);
-}
+
 
 
 Future<Map> auth(String auth) async {
@@ -19,4 +21,10 @@ Future<Map> auth(String auth) async {
 
 Future<String> version() async {
   return await _channel.invokeMethod("version");
+}
+
+
+enum AliPayEvn{
+  ONLINE,
+  SANDBOX
 }

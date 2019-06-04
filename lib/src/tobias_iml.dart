@@ -15,7 +15,6 @@ Future<Map> pay(String order,{AliPayEvn evn = AliPayEvn.ONLINE}) async {
 
 
 
-
 Future<Map> auth(String auth) async {
   return await _channel.invokeMethod("auth", auth);
 }
@@ -24,6 +23,9 @@ Future<String> version() async {
   return await _channel.invokeMethod("version");
 }
 
+Future<bool> isAliPayInstalled() async{
+  return await _channel.invokeMethod("isAliPayInstalled");
+}
 
 enum AliPayEvn{
   ONLINE,

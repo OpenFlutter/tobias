@@ -9,6 +9,10 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import kotlinx.coroutines.*
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
+import android.content.Intent
+import android.net.Uri
 
 
 class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
@@ -20,11 +24,12 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
         }
     }
 
-    override fun onMethodCall(call: MethodCall, result: Result): Unit {
+    override fun onMethodCall(call: MethodCall, result: Result) {
         when {
             call.method == "version" -> version(result)
             call.method == "pay" -> pay(call, result)
             call.method == "auth" -> auth(call, result)
+            call.method == "isAliPayInstalled" -> isAliPayInstalled(result)
             else -> result.notImplemented()
         }
 
@@ -77,6 +82,14 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
                     "version" to version
             ))
         }
+    }
+
+    private fun isAliPayInstalled(result: Result){
+        val manager = registrar.context().packageManager
+        val action = Intent(Intent.ACTION_VIEW)
+        action.data = Uri.parse("alipays://")
+        val list = manager.queryIntentActivities(action, PackageManager.GET_RESOLVED_FILTER)
+        result.success(list != null && list.size > 0)
     }
 
     private suspend fun doGetVersionTask(): String {

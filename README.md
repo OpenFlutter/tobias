@@ -45,6 +45,13 @@ resultStatus: 9000,
 
 ```
 
+## Check AliPay Installation
+
+```
+    var result = await tobias.isAliPayInstalled();
+   
+```
+
 In order to handle the result of payment, you have to add the following code in your `AppDelegate.m` file:
 ```objective-c
 #import <tobias/TobiasPlugin.h>

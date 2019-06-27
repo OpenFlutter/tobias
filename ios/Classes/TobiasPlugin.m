@@ -32,6 +32,7 @@ __weak TobiasPlugin* __tobiasPlugin;
             binaryMessenger:[registrar messenger]];
   TobiasPlugin* instance = [[TobiasPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
+  [registrar addApplicationDelegate:instance];
 }
 
 
@@ -50,6 +51,17 @@ __weak TobiasPlugin* __tobiasPlugin;
       result(FlutterMethodNotImplemented);
   }
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+
+    return [self handleOpenURL:url];
+}
+
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+    return [self handleOpenURL:url];
+}
+
 
 +(BOOL)handleOpenURL:(NSURL*)url{
   

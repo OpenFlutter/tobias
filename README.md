@@ -52,7 +52,7 @@ resultStatus: 9000,
    
 ```
 
-```
+
 > NOTE:Tobias use pay_V2.
 
 For iOS,yout have to add url schema named `alipay`.

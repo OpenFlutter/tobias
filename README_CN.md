@@ -82,7 +82,7 @@ resultStatus: 9000,
 
 从`tobais 1.0.0`开始开发者不必重写`AppDelegate`了。如果你以前重写了这个方法,请在 `AppDelegate`中删除相应的代码:
 
-```
+```objective-c
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   return [WXApi handleOpenURL:url delegate:[FluwxResponseHandler defaultManager]];
@@ -94,7 +94,7 @@ resultStatus: 9000,
 ```
 
 如果一定要重写这2个方法,请确保你调用了 `super`:
-```
+```objective-c
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     

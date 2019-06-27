@@ -87,7 +87,7 @@ resultStatus: 9000,
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   return [WXApi handleOpenURL:url delegate:[FluwxResponseHandler defaultManager]];
 }
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
   return [WXApi handleOpenURL:url delegate:[FluwxResponseHandler defaultManager]];
 }
@@ -100,10 +100,10 @@ resultStatus: 9000,
     
   return [super application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
     
-  return [super application:app openURL:url options:options];
+  return [super application:application openURL:url options:options];
 }
 ```
 

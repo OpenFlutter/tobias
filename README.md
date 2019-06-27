@@ -90,7 +90,7 @@ the following code in your `AppDelegate`:
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   return [TobiasPlugin handleOpenURL:url];
 }
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
   return [TobiasPlugin handleOpenURL:url];
 }
@@ -103,10 +103,10 @@ If you have to override these two functions,make sure you have called the `super
     
   return [super application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
     
-  return [super application:app openURL:url options:options];
+  return [super application:application openURL:url options:options];
 }
 ```
 

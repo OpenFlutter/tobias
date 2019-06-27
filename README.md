@@ -52,21 +52,6 @@ resultStatus: 9000,
    
 ```
 
-In order to handle the result of payment, you have to add the following code in your `AppDelegate.m` file:
-```objective-c
-#import <tobias/TobiasPlugin.h>
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-
-    return  [TobiasPlugin handleOpenURL:url];
-}
-
-// NOTE: 9.0以后使用新API接口
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
-
-    return  [TobiasPlugin handleOpenURL:url];
-}
-
 ```
 > NOTE:Tobias use pay_V2.
 
@@ -93,6 +78,39 @@ in your `info.plist`:
 ```
 
 You can also call `tobias.version()` which returns a map contains `version` and `platform`.
+
+
+## Upgrade to 1.0.0
+
+There's no need to override `AppDelegate` since `tobais 1.0.0`. If you have did thad before, please remove 
+the following code in your `AppDelegate`:
+
+```
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  return [TobiasPlugin handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+  return [TobiasPlugin handleOpenURL:url];
+}
+```
+
+If you have to override these two functions,make sure you have called the `super`:
+```
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+  return [super application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    
+  return [super application:app openURL:url options:options];
+}
+```
+
+
 
 ### Donate
 Buy the writer a cup of coffee。

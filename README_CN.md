@@ -77,23 +77,37 @@ resultStatus: 9000,
 }
 
 ```
-为了处理支付结果, 你要在你的`AppDelegate.m`文件中添加如下代码:
-```objective-c
-#import <tobias/TobiasPlugin.h>
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+## 升级到1.0.0
 
-    return  [TobiasPlugin handleOpenURL:url];
-}
-
-// NOTE: 9.0以后使用新API接口
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
-
-    return  [TobiasPlugin handleOpenURL:url];
-}
+从`tobais 1.0.0`开始开发者不必重写`AppDelegate`了。如果你以前重写了这个方法,请在 `AppDelegate`中删除相应的代码:
 
 ```
-请作者喝杯咖啡。
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  return [WXApi handleOpenURL:url delegate:[FluwxResponseHandler defaultManager]];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+  return [WXApi handleOpenURL:url delegate:[FluwxResponseHandler defaultManager]];
+}
+```
+
+如果一定要重写这2个方法,请确保你调用了 `super`:
+```
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+  return [super application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    
+  return [super application:app openURL:url options:options];
+}
+```
+
+## 请作者喝杯咖啡。
 
 <img src="./arts/wx.jpeg" height="300">  <img src="./arts/ali.jpeg" height="300">
 

@@ -53,6 +53,9 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     _loadData();
+    tobias.isAliPayInstalled().then((data){
+      print("installed $data");
+    });
   }
 
   onChanged(String value) {

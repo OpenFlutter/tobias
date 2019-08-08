@@ -59,7 +59,7 @@ tobias.pay(yourOrder);
    			<string>alipay</string>
    			<key>CFBundleURLSchemes</key>
    			<array>
-   				<string>tobias_example</string>
+   				<string>tobiasexample</string>
    			</array>
    		</dict>
    	</array>

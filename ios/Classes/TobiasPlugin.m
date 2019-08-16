@@ -1,5 +1,5 @@
 #import "TobiasPlugin.h"
-
+#import <AlipaySDK/AlipaySDK.h>
 
 __weak TobiasPlugin* __tobiasPlugin;
 

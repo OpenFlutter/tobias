@@ -180,7 +180,7 @@ __weak TobiasPlugin* __tobiasPlugin;
 }
 
 -(void) _isAliPayInstalled:(FlutterMethodCall*)call result:(FlutterResult)result {
-   BOOL isAliPayInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipays://"]];
+   BOOL isAliPayInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipays://"]]||[[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipay://"]];
    result(@(isAliPayInstalled));
 }
 

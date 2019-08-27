@@ -37,7 +37,10 @@ resultStatus: 9000,
 }
 
 ```
-
+ 
+ > NOTE:Tobias use pay_V2.
+ 
+  
 ## Auth
 
 ```
@@ -50,10 +53,11 @@ resultStatus: 9000,
 ```
     var result = await tobias.isAliPayInstalled();
    
-```
+``` 
+
+> If you want to check alipay installation of Alipay on iOS,make sure you have added `alipay` into your whitelist in `info.plist`.
 
 
-> NOTE:Tobias use pay_V2.
 
 For iOS,yout have to add url schema named `alipay`.
 On Xcode GUI:

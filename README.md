@@ -55,7 +55,7 @@ resultStatus: 9000,
    
 ``` 
 
-> If you want to check alipay installation of Alipay on iOS,make sure you have added `alipay` into your whitelist in `info.plist`.
+> If you want to check alipay installation of Alipay on iOS,make sure you have added `alipays` into your whitelist in `info.plist`.
 
 
 

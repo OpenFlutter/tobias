@@ -23,6 +23,10 @@ Tobias使用起来很简单，只需要把从服务器取得的字符串交给To
 import 'package:tobias/tobias.dart' as tobias;
 tobias.pay(yourOrder);
 ```
+   
+返回值是一个包含支付宝支付结果的`map`。其中还包含了一个额外的 `platform`字段，
+它的值为 `iOS` 或 `android`。
+> 注意:Tobias 使用的是 pay_V2.
 
 ## 授权登录
 
@@ -39,12 +43,10 @@ tobias.pay(yourOrder);
     var result = await tobias.isAliPayInstalled();
    
 ```   
-   
-返回值是一个包含支付宝支付结果的`map`。其中还包含了一个额外的 `platform`字段，
-它的值为 `iOS` 或 `android`。
-> 注意:Tobias 使用的是 pay_V2.
 
-在 iOS中还要添加一个名为`alipay`的URL Schema。
+> 如果你想在iOS上检测支付宝是否已安装，请确保你已经在`info.plist`中将`alipays`添加至白名单。 
+
+在 iOS中还要添加一个名为`alipay`的URL Schema，否则无法返回你的app.
 通过GUI添加:
 ![url_schema](./arts/url_schema.png)
 

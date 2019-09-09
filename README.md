@@ -11,7 +11,7 @@ Tobias is a  flutter plugin for AliPaySDK.
 
 ## Getting Started
 
-I highly recommend that you read this [article](https://docs.open.alipay.com/204/105051/) before using tobias.
+I highly recommend that you read  [the official documents](https://docs.open.alipay.com/204/105051/) before using tobias.
 Tobias helps you to do something but not all.
 For example, you have to configure your URL Scheme on iOS.
 
@@ -86,7 +86,7 @@ You can also call `tobias.version()` which returns a map contains `version` and 
 
 ## Upgrade to 1.0.0
 
-There's no need to override `AppDelegate` since `tobais 1.0.0`. If you have did that before, please remove 
+There's no need to override `AppDelegate` since `tobais 1.0.0`. If you have done that before, please remove 
 the following code in your `AppDelegate`:
 
 ```objective-c
@@ -117,7 +117,7 @@ If you have to override these two functions, make sure you have called the `supe
 
 
 ### Donate
-Buy the writer a cup of coffee。
+Buy me a cup of coffee。
 
 <img src="./arts/wx.jpeg" height="300">  <img src="./arts/ali.jpeg" height="300">
 

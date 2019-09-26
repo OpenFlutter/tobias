@@ -161,11 +161,7 @@ __weak TobiasPlugin* __tobiasPlugin;
     if(version == nil){
         version = @"";
     }
-    result(@{
-
-            @"platform" :@"iOS",
-            @"version" : version
-    });
+    result(version);
 }
 
 -(NSString*)fetchUrlScheme{

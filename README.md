@@ -22,8 +22,8 @@ For example, you have to configure your URL Scheme on iOS.
 ## Payment
 It's simple,pass Tobias your order info from server :
 ```dart
-import 'package:tobias/tobias.dart' as tobias;
-tobias.pay(yourOrder);
+import 'package:tobias/tobias.dart' ;
+aliPay(yourOrder);
 ```
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
@@ -44,14 +44,14 @@ resultStatus: 9000,
 ## Auth
 
 ```
-    tobias.auth("your auth str");
+   aliPayAuth("your auth str");
 
 ```
 
 ## Check AliPay Installation
 
 ```
-    var result = await tobias.isAliPayInstalled();
+    var result = await isAliPayInstalled();
    
 ``` 
 

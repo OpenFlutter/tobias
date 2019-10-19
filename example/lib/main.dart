@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tobias/tobias.dart' as tobias;
+import 'package:tobias/tobias.dart';
 
 void main() => runApp(new MyApp());
 
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     _loadData();
-    tobias.isAliPayInstalled().then((data){
+    isAliPayInstalled().then((data){
       print("installed $data");
     });
   }
@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
     Map payResult;
     try {
       print("The pay info is : " + _payInfo);
-      payResult = await tobias.pay(_payInfo);
+      payResult = await aliPay(_payInfo);
       print("--->$payResult");
     } on Exception catch (e) {
       payResult = {};

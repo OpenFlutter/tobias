@@ -77,10 +77,7 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
     private fun version(result: Result) {
         GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
             val version = doGetVersionTask()
-            result.success(mapOf(
-                    "platform" to "android",
-                    "version" to version
-            ))
+            result.success(version)
         }
     }
 

@@ -18,7 +18,7 @@ A Flutter plugin For Alipay.
   s.dependency 'Flutter'
 #  s.dependency 'OpenAliPaySDK', '~> 15.6.5'
 #  s.dependency 'AliPay', '~> 2.1.2'
-  s.dependency 'AlipaySDK-iOS'
+  s.dependency 'AlipaySDK-iOS', '~> 15.6.8'
 
   s.ios.deployment_target = '8.0'
 end

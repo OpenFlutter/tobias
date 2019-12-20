@@ -1,3 +1,7 @@
+## 1.2.2
+
+* 加入consumer-proguard
+
 ## 1.2.1
 
 * Fix #35

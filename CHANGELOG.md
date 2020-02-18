@@ -1,3 +1,6 @@
+## 1.2.3
+* Android的支付宝SDK升级到15.7.3
+
 ## 1.2.2
 
 * 加入consumer-proguard

@@ -6,7 +6,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `Flutter`)
   - tobias (from `.symlinks/plugins/tobias/ios`)
 
 SPEC REPOS:
@@ -15,7 +15,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: Flutter
   tobias:
     :path: ".symlinks/plugins/tobias/ios"
 
@@ -24,6 +24,6 @@ SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   tobias: b77cace96409ab4a1710403cd362bf6a9dd9c685
 
-PODFILE CHECKSUM: d6f301691dfd669928dc7c715017bace08c0ea70
+PODFILE CHECKSUM: 3dbe063e9c90a5d7c9e4e76e70a821b9e2c1d271
 
 COCOAPODS: 1.8.4

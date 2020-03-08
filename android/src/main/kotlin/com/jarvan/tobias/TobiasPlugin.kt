@@ -1,21 +1,21 @@
 package com.jarvan.tobias
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import com.alipay.sdk.app.AuthTask
 import com.alipay.sdk.app.EnvUtils
 import com.alipay.sdk.app.PayTask
+import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import kotlinx.coroutines.*
-import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
-import android.content.Intent
-import android.net.Uri
 
 
-class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
+class TobiasPlugin(private var registrar: Registrar) : FlutterPlugin, MethodCallHandler {
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar): Unit {
@@ -25,11 +25,11 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
-        when {
-            call.method == "version" -> version(result)
-            call.method == "pay" -> pay(call, result)
-            call.method == "auth" -> auth(call, result)
-            call.method == "isAliPayInstalled" -> isAliPayInstalled(result)
+        when (call.method) {
+            "version" -> version(result)
+            "pay" -> pay(call, result)
+            "auth" -> auth(call, result)
+            "isAliPayInstalled" -> isAliPayInstalled(result)
             else -> result.notImplemented()
         }
 
@@ -42,11 +42,10 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
             } else {
                 EnvUtils.setEnv(EnvUtils.EnvEnum.ONLINE)
             }
-            val payResult = doPayTask(call.argument("order")?:"")
+            val payResult = doPayTask(call.argument("order") ?: "")
             result.success(payResult.plus("platform" to "android"))
         }
     }
-
 
 
     private suspend fun doPayTask(orderInfo: String): Map<String, String> {
@@ -81,7 +80,7 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
         }
     }
 
-    private fun isAliPayInstalled(result: Result){
+    private fun isAliPayInstalled(result: Result) {
         val manager = registrar.context().packageManager
         val action = Intent(Intent.ACTION_VIEW)
         action.data = Uri.parse("alipays://")
@@ -95,5 +94,13 @@ class TobiasPlugin(private var registrar: Registrar) : MethodCallHandler {
             val alipay = PayTask(registrar.activity())
             alipay.version ?: ""
         }.await()
+    }
+
+    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        val channel = MethodChannel(registrar.messenger(), "com.jarvanmo/tobias")
+        channel.setMethodCallHandler(this)
+    }
+
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     }
 }

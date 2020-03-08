@@ -1,3 +1,7 @@
+## 1.3.0
+* 删除过时方法
+* 升级Android plugin以兼容新API
+
 ## 1.2.3
 * Android的支付宝SDK升级到15.7.3
 

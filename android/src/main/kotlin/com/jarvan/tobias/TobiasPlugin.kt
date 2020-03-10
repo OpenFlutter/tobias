@@ -15,7 +15,9 @@ import io.flutter.plugin.common.PluginRegistry.Registrar
 import kotlinx.coroutines.*
 
 
-class TobiasPlugin(private var registrar: Registrar) : FlutterPlugin, MethodCallHandler {
+class TobiasPlugin() : FlutterPlugin, MethodCallHandler {
+    constructor(private var registrar: Registrar)
+
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar): Unit {
@@ -46,7 +48,6 @@ class TobiasPlugin(private var registrar: Registrar) : FlutterPlugin, MethodCall
             result.success(payResult.plus("platform" to "android"))
         }
     }
-
 
     private suspend fun doPayTask(orderInfo: String): Map<String, String> {
 

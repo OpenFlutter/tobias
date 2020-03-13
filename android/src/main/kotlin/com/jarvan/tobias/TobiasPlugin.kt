@@ -16,9 +16,12 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 
-class TobiasPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
+class TobiasPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, CoroutineScope {
+
+
     private var activity: Activity? = null
 
     companion object {
@@ -43,46 +46,45 @@ class TobiasPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
     }
 
     private fun pay(call: MethodCall, result: Result) {
-        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
+        launch {
             if (call.argument<Int>("payEnv") == 1) {
                 EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX)
             } else {
                 EnvUtils.setEnv(EnvUtils.EnvEnum.ONLINE)
             }
             val payResult = doPayTask(call.argument("order") ?: "")
-            result.success(payResult.plus("platform" to "android"))
+            withContext(Dispatchers.Main) {
+                result.success(payResult)
+            }
         }
     }
 
-    private suspend fun doPayTask(orderInfo: String): Map<String, String> {
-
-        return GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT) {
-            val alipay = PayTask(activity)
-            alipay.payV2(orderInfo, true) ?: mapOf<String, String>()
-        }.await()
+    private suspend fun doPayTask(orderInfo: String): Map<String, String> = withContext(Dispatchers.IO) {
+        val alipay = PayTask(activity)
+        alipay.payV2(orderInfo, true) ?: mapOf<String, String>()
     }
 
 
     private fun auth(call: MethodCall, result: Result) {
-        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
+        launch {
             val authResult = doAuthTask(call.arguments as String)
-            result.success(authResult.plus("platform" to "android"))
+            withContext(Dispatchers.Main) {
+                result.success(authResult.plus("platform" to "android"))
+            }
         }
     }
 
-    private suspend fun doAuthTask(authInfo: String): Map<String, String> {
-
-        return GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT) {
-            val alipay = AuthTask(activity)
-            alipay.authV2(authInfo, true) ?: mapOf<String, String>()
-        }.await()
+    private suspend fun doAuthTask(authInfo: String): Map<String, String> = withContext(Dispatchers.IO) {
+        val alipay = AuthTask(activity)
+        alipay.authV2(authInfo, true) ?: mapOf<String, String>()
     }
 
-
     private fun version(result: Result) {
-        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
+        launch {
             val version = doGetVersionTask()
-            result.success(version)
+            withContext(Dispatchers.Main) {
+                result.success(version)
+            }
         }
     }
 
@@ -98,12 +100,9 @@ class TobiasPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
         }
     }
 
-    private suspend fun doGetVersionTask(): String {
-
-        return GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT) {
-            val alipay = PayTask(activity)
-            alipay.version ?: ""
-        }.await()
+    private suspend fun doGetVersionTask(): String = withContext(Dispatchers.IO) {
+        val alipay = PayTask(activity)
+        alipay.version ?: ""
     }
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
@@ -112,6 +111,7 @@ class TobiasPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        job.cancel()
     }
 
     override fun onDetachedFromActivity() {
@@ -126,4 +126,8 @@ class TobiasPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     override fun onDetachedFromActivityForConfigChanges() {
     }
+
+    private val job = Job()
+
+    override val coroutineContext: CoroutineContext = Dispatchers.Main + job
 }

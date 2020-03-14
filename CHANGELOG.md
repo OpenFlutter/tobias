@@ -1,3 +1,7 @@
+## 1.6.0
+* Fix #41
+* 升级kotlin coroutine
+
 ## 1.5.0
 * 改进Android代码
 

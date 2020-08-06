@@ -1,0 +1,5 @@
+package android.alipaySdk
+
+apply plugin: "maven"
+configurations.maybeCreate("default")
+artifacts.add("default", file('alipaySdk-15.7.9-20200727142814-noUtdid.aar'))

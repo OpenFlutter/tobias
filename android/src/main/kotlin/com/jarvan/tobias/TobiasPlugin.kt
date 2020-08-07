@@ -1,11 +1,5 @@
 package com.jarvan.tobias
 
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import com.alipay.sdk.app.AuthTask
-import com.alipay.sdk.app.EnvUtils
-import com.alipay.sdk.app.PayTask
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding

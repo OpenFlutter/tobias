@@ -8,4 +8,4 @@ pubspec.lock
 build/
 *.iml
 .idea/
-.flutter-plugins-dependencies
+*.flutter-plugins-dependencies

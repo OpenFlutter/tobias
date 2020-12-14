@@ -1,3 +1,6 @@
+## 2.0.0-nullsafety.1
+* Support NullSafety
+
 ## 1.7.1+1
 * Fix #57
 

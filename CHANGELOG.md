@@ -1,3 +1,6 @@
+## 2.0.0-nullsafety.2
+* Update dependency
+
 ## 2.0.0-nullsafety.1
 * Support NullSafety
 

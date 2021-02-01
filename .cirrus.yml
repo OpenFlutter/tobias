@@ -10,6 +10,7 @@ task:
     - flutter upgrade
   build_script:
     - cd example
+    - flutter build apk --debug
     - flutter build apk --profile
     - flutter build apk
   #test_script: flutter test

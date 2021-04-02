@@ -1,3 +1,6 @@
+## 2.1.0
+* NullSafety
+
 ## 2.0.0-nullsafety.3
 * Fix #82
 

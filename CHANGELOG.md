@@ -1,3 +1,12 @@
+## 2.0.0-nullsafety.3
+* Fix #82
+
+## 2.0.0-nullsafety.2
+* Update dependency
+
+## 2.0.0-nullsafety.1
+* Support NullSafety
+
 ## 1.7.2+3
 * Fix #82
 

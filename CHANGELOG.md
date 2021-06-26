@@ -1,3 +1,7 @@
+## 2.1.1
+* Merge #99
+* Update Android SDK to 15.08.03
+
 ## 2.1.0
 * NullSafety
 

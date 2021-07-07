@@ -1,3 +1,6 @@
+## 2.1.2+1
+* Update compileSdk version to 30
+
 ## 2.1.2
 * Use Android no-uuid sdk
 

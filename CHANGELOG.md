@@ -1,3 +1,31 @@
+## 2.1.2+1
+* Update compileSdk version to 30
+
+## 2.1.2
+* Use Android no-uuid sdk
+
+## 2.1.1
+* Merge #99
+* Update Android SDK to 15.08.03
+
+## 2.1.0
+* NullSafety
+
+## 2.0.0-nullsafety.3
+* Fix #82
+
+## 2.0.0-nullsafety.2
+* Update dependency
+
+## 2.0.0-nullsafety.1
+* Support NullSafety
+
+## 1.7.2+3
+* Fix #82
+
+## 1.7.1+2
+* Update libs.
+
 ## 1.7.1+1
 * Fix #57
 

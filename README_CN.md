@@ -18,7 +18,10 @@ Tobias 可以完成一部分但不是全部工作。
 
 
 ## 支付
-Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:
+Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:   
+如果安卓出现Unhandled Exception: MissingPluginException(No implementation found for method pay on channel com.jarvanmo/tobias)错误    
+请将[android/build.gradle](https://github.com/OpenFlutter/tobias/blob/master/android/build.gradle#L5)更改为同一版本。    
+
 ```dart
 import 'package:tobias/tobias.dart' as tobias;
 tobias.pay(yourOrder);

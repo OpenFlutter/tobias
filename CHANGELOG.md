@@ -20,7 +20,7 @@
 ## 2.0.0-nullsafety.1
 * Support NullSafety
 
-## 1.7.2+3
+## 1.7.1+3
 * Fix #82
 
 ## 1.7.1+2

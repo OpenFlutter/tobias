@@ -1,3 +1,6 @@
+## 2.2.0
+* Update AlipaySDK to 15.8.06
+
 ## 2.1.2+1
 * Update compileSdk version to 30
 

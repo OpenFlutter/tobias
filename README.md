@@ -1,5 +1,5 @@
 ![logo](./arts/tobias_logo.png)
-![Build status](https://github.com/OpenFlutter/tobais/actions/workflows/build_test.yml/badge.svg)
+![Build status](https://github.com/OpenFlutter/tobias/actions/workflows/build_test.yml/badge.svg)
 
 [中文移步这里](./README_CN.md)
 

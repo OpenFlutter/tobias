@@ -1,5 +1,5 @@
 ![logo](./arts/tobias_logo.png)
-![Build status](https://github.com/OpenFlutter/tobais/actions/workflows/build_test.yml/badge.svg)
+![Build status](https://github.com/OpenFlutter/tobias/actions/workflows/build_test.yml/badge.svg)
 
 QQ 群：892398530。
 

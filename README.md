@@ -1,5 +1,5 @@
 ![logo](./arts/tobias_logo.png)
-![pub package](https://img.shields.io/pub/v/tobias.svg)
+![Build status](https://github.com/OpenFlutter/tobais/actions/workflows/build_test.yml/badge.svg)
 
 [中文移步这里](./README_CN.md)
 

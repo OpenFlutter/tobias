@@ -9,4 +9,11 @@ pubspec.lock
 build/
 *.iml
 .idea/
-*.flutter-plugins-dependencies
+.vscode/
+
+.flutter-plugins-dependencies
+flutter_export_environment.sh
+
+example/ios/.symlinks
+example/Podfile.lock
+.last_build_id

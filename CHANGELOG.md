@@ -1,3 +1,6 @@
+## 2.3.0
+* Update Android configurations
+
 ## 2.2.0
 * Update AlipaySDK to 15.8.06
 

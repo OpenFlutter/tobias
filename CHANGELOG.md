@@ -1,3 +1,6 @@
+## 2.4.0
+* 升级SDK到15.8.08
+
 ## 2.3.0
 * Update Android configurations
 

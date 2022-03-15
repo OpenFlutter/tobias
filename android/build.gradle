@@ -18,9 +18,9 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        flatDir {
-            dirs project(':tobias').file('libs')
-        }
+//        flatDir {
+//            dirs project(':tobias').file('libs')
+//        }
     }
 }
 
@@ -45,7 +45,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation(name: 'alipaysdk-noutdid-15.8.06.211122165332', ext: 'aar')
+    implementation 'com.alipay.sdk:alipaysdk-android:15.8.08@aar'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 }

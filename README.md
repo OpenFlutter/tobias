@@ -3,7 +3,9 @@
 
 [中文移步这里](./README_CN.md)
 
-QQ Group：892398530。
+> Join QQ Group now: 1003811176
+
+![QQGroup](https://gitee.com/OpenFlutter/resoures-repository/raw/master/common/flutter.png)
 
 ## What's Tobias
 

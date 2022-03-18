@@ -1,4 +1,4 @@
-package com.jarvanmo.example
+package com.jarvan.tobias_example
 
 import io.flutter.embedding.android.FlutterActivity
 

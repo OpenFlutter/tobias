@@ -1,7 +1,9 @@
 ![logo](./arts/tobias_logo.png)
 ![Build status](https://github.com/OpenFlutter/tobias/actions/workflows/build_test.yml/badge.svg)
 
-QQ 群：892398530。
+> QQ群: 1003811176
+
+![QQGroup](https://gitee.com/OpenFlutter/resoures-repository/raw/master/common/flutter.png)
 
 ## Tobias是什么
 

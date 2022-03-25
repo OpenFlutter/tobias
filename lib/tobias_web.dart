@@ -12,7 +12,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 class TobiasWeb {
   static void registerWith(Registrar registrar) {
     final MethodChannel channel = MethodChannel(
-      'tobias',
+      'com.jarvanmo/tobias',
       const StandardMethodCodec(),
       registrar,
     );

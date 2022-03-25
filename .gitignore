@@ -19,5 +19,5 @@ example/Podfile.lock
 
 example/ios/Flutter/.last_build_id
 example/ios/Flutter/flutter_export_environment.sh
-example/tobias_example.iml
-example/tobias_example_android.iml
+example/*.iml
+example/*.iml

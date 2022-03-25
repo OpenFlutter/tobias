@@ -16,3 +16,8 @@ flutter_export_environment.sh
 example/ios/.symlinks
 example/Podfile.lock
 .last_build_id
+
+example/ios/Flutter/.last_build_id
+example/ios/Flutter/flutter_export_environment.sh
+example/tobias_example.iml
+example/tobias_example_android.iml

@@ -3,21 +3,41 @@ package com.jarvan.tobias
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import io.flutter.plugin.common.PluginRegistry
 
-class TobiasPlugin : FlutterPlugin, MethodCallHandler, ActivityAware{
+class TobiasPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     private val delegate = TobaisPluginDelegate()
 
-    override fun onMethodCall(call: MethodCall, result: Result) = delegate.handleMethodCall(call, result)
+    override fun onMethodCall(call: MethodCall, result: Result) =
+        delegate.handleMethodCall(call, result)
+
+    companion object {
+        /**
+         * Plugin registration.
+         */
+        @SuppressWarnings("deprecation")
+        public fun registerWith(registrar: PluginRegistry.Registrar) {
+            val instance = TobiasPlugin()
+            instance.onAttachedToEngine(registrar.messenger())
+        }
+    }
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        val channel = MethodChannel(binding.binaryMessenger, "com.jarvanmo/tobias")
+        onAttachedToEngine(binding.binaryMessenger);
+    }
+
+
+    private fun onAttachedToEngine(messenger: BinaryMessenger) {
+        val channel = MethodChannel(messenger, "com.jarvanmo/tobias")
         channel.setMethodCallHandler(this)
     }
+
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         delegate.cancel()

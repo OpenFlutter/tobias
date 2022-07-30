@@ -1,6 +1,6 @@
 name: tobias
 description: A Flutter plugin for allowing users to authenticate or pay with native Android&iOS AliPay SDKs.
-version: 2.4.0+2
+version: 2.4.1
 homepage: https://github.com/OpenFlutter/tobias
 
 environment:

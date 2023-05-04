@@ -1,3 +1,6 @@
+## 2.4.2
+* compileSdkVersion -> compileSdk 
+
 ## 2.4.1+1
 * Kotlin 1.7.10
 * AGP 7.4.1

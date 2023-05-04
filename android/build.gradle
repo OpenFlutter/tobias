@@ -29,7 +29,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.jarvan.tobias'
-    compileSdkVersion 31
+    compileSdk 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

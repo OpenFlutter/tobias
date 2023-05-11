@@ -1,6 +1,23 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
+
+pubspec = YAML.load_file(File.join('..', 'pubspec.yaml'))
+library_version = pubspec['version'].gsub('+', '-')
+
+current_dir = Dir.pwd
+calling_dir = File.dirname(__FILE__)
+project_dir = calling_dir.slice(0..(calling_dir.index('/.symlinks')))
+flutter_project_dir = calling_dir.slice(0..(calling_dir.index('/ios/.symlinks')))
+cfg = YAML.load_file(File.join(flutter_project_dir, 'pubspec.yaml'))
+
+if cfg['tobias'] && cfg['tobias']['url_scheme']
+    url_scheme = cfg['tobias']['url_scheme']
+    system("ruby #{current_dir}/tobias_setup.rb -u #{url_scheme} -p #{project_dir} -n Runner.xcodeproj")
+else
+    abort("required values:[url_scheme] are missing. Please add them in pubspec.yaml:\ntobias:\n  url_scheme: ${url scheme}\n")
+end
+
 Pod::Spec.new do |s|
   s.name             = 'tobias'
   s.version          = '0.0.1'

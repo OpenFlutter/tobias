@@ -10,30 +10,30 @@ import io.flutter.plugin.common.MethodChannel.Result
 
 class TobiasPlugin : FlutterPlugin, MethodCallHandler, ActivityAware{
 
-    private val delegate = TobaisPluginDelegate()
+  private val delegate = TobaisPluginDelegate()
 
-    override fun onMethodCall(call: MethodCall, result: Result) = delegate.handleMethodCall(call, result)
+  override fun onMethodCall(call: MethodCall, result: Result) = delegate.handleMethodCall(call, result)
 
-    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        val channel = MethodChannel(binding.binaryMessenger, "com.jarvanmo/tobias")
-        channel.setMethodCallHandler(this)
-    }
+  override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+    val channel = MethodChannel(binding.binaryMessenger, "com.jarvanmo/tobias")
+    channel.setMethodCallHandler(this)
+  }
 
-    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        delegate.cancel()
-    }
+  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+    delegate.cancel()
+  }
 
-    override fun onDetachedFromActivity() {
-    }
+  override fun onDetachedFromActivity() {
+  }
 
-    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    }
+  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+  }
 
-    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-        delegate.activity = binding.activity
-    }
+  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+    delegate.activity = binding.activity
+  }
 
-    override fun onDetachedFromActivityForConfigChanges() {
-    }
+  override fun onDetachedFromActivityForConfigChanges() {
+  }
 
 }

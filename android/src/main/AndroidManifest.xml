@@ -15,4 +15,4 @@
         <package android:name="com.eg.android.AlipayGphoneRC" />
         <package android:name="hk.alipay.wallet" />
     </queries>
-</manifest></manifest>
+</manifest>

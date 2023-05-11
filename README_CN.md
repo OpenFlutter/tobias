@@ -12,12 +12,9 @@ Tobias是一个为支付宝支付SDK做的Flutter插件。
 ## 开始
 
 在使用前强烈阅读[官方接入指南](https://docs.open.alipay.com/204/105051/)。
-Tobias 可以完成一部分但不是全部工作。
-例如，在iOS上你还要设置URL Scheme。
 
-
-
-
+1.  您需要在[pubspec.yaml](./example/pubspec.yaml)中配置`url_scheme`。 Url scheme是一个独特的字符串用来重新启动你的app
+但是请注意字符串`_`是不合法的.
 
 ## 支付
 Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:   
@@ -25,7 +22,8 @@ Tobias使用起来很简单，只需要把从服务器取得的字符串交给To
 请将[android/build.gradle](https://github.com/OpenFlutter/tobias/blob/master/android/build.gradle#L5)更改为同一版本。    
 
 ```dart
-import 'package:tobias/tobias.dart' as tobias;
+import 'package:tobias/tobias.dart' ;
+Tobias tobias = Tobias();
 tobias.pay(yourOrder);
 ```
    
@@ -36,44 +34,19 @@ tobias.pay(yourOrder);
 ## 授权登录
 
 ```
-    tobias.auth("your auth str");
-
+import 'package:tobias/tobias.dart' ;
+Tobias tobias = Tobias();
+tobias.auth("your auth str);
 ```
-
-
 
 ## 检查支付宝安装情况
 
 ```
-    var result = await tobias.isAliPayInstalled();
-   
-```   
+Tobias tobias = Tobias();
+var result = await tobias.isAliPayInstalled;
+``` 
 
-> 如果你想在iOS上检测支付宝是否已安装，请确保你已经在`info.plist`中将`alipays`添加至白名单。 
-
-在 iOS中还要添加一个名为`alipay`的URL Schema，否则无法返回你的app.
-通过GUI添加:
-![url_schema](./arts/url_schema.png)
-
-
-在`info.plist`文件中添加:
-```
-<array>
-   		<dict>
-   			<key>CFBundleTypeRole</key>
-   			<string>Editor</string>
-   			<key>CFBundleURLName</key>
-   			<string>alipay</string>
-   			<key>CFBundleURLSchemes</key>
-   			<array>
-   				<string>tobiasexample</string>
-   			</array>
-   		</dict>
-   	</array>
-
-```
-
-你可以通过调用 `tobias.version()` 来获取对应平上的SDK版本，其返回值是一个包含 `version` 和 `platform`的map。
+你可以通过调用 `tobias.version` 来获取对应平上的SDK版本，其返回值是一个包含 `version` 和 `platform`的map。
 结果示例:
 ```dart
 {

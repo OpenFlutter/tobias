@@ -1,3 +1,8 @@
+# 3.0.0
+* 重构Flutter端
+* 现在可以在pubspec.yaml里直接配置url_schme
+* 自动在iOS添加Queries
+
 ## 2.4.2
 * compileSdkVersion -> compileSdk 
 

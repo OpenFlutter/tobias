@@ -14,18 +14,16 @@ Tobias is a  flutter plugin for AliPaySDK.
 ## Getting Started
 
 I highly recommend that you read  [the official documents](https://docs.open.alipay.com/204/105051/) before using tobias.
-Tobias helps you to do something but not all.
-For example, you have to configure your URL Scheme on iOS.
 
-
-
-
+1. You have to config `url_scheme` in [pubspec.yaml](./example/pubspec.yaml). Url scheme is a unique string to 
+resume you app on iOS but please note that `_` is invalid.
 
 ## Payment
 It's simple,pass Tobias your order info from server :
 ```dart
 import 'package:tobias/tobias.dart' ;
-aliPay(yourOrder);
+Tobias tobias = Tobias();
+tobias.pay(yourOrder);
 ```
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
@@ -46,44 +44,19 @@ resultStatus: 9000,
 ## Auth
 
 ```
-   aliPayAuth("your auth str");
-
+import 'package:tobias/tobias.dart' ;
+Tobias tobias = Tobias();
+tobias.auth("your auth str);
 ```
 
 ## Check AliPay Installation
 
 ```
-    var result = await isAliPayInstalled();
-   
-``` 
-
-> If you want to check alipay installation of Alipay on iOS,make sure you have added `alipays` into your whitelist in `info.plist`.
-
-
-
-For iOS,yout have to add url schema named `alipay`.
-On Xcode GUI:
-![url_schema](./arts/url_schema.png)
-
-
-in your `info.plist`:
-```
-     <array>
-   		<dict>
-   			<key>CFBundleTypeRole</key>
-   			<string>Editor</string>
-   			<key>CFBundleURLName</key>
-   			<string>alipay</string>
-   			<key>CFBundleURLSchemes</key>
-   			<array>
-   				<string>tobiasexample</string>
-   			</array>
-   		</dict>
-   	</array>
-
+Tobias tobias = Tobias();
+var result = await tobias.isAliPayInstalled;
 ```
 
-You can also call `tobias.version()` which returns a map contains `version` and `platform`.
+You can also call `tobias.version` which returns a map contains `version` and `platform`.
 
 
 ## Upgrade to 1.0.0

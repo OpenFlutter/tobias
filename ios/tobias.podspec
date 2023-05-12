@@ -15,6 +15,7 @@ if cfg['tobias'] && cfg['tobias']['no_utdid'] == true
     tobias_subspec = 'no_utdid'
 else
     tobias_subspec = 'normal'
+end
 
 Pod::UI.puts "using sdk with #{tobias_subspec}"
 
@@ -65,6 +66,8 @@ A Flutter plugin For Alipay.
     sp.vendored_frameworks   = 'AlipaySDK/NoUtdid/AlipaySDK.framework'
     sp.pod_target_xcconfig = pod_target_xcconfig
   end
+
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 
 end
 

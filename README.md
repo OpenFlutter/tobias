@@ -40,6 +40,7 @@ resultStatus: 9000,
  
  > NOTE:Tobias use pay_V2.
  
+> If you're facing conflicts with `utdid` on iOS, you can set `no_utdid: true` in [pubspec.yaml](./example/pubspec.yaml)
   
 ## Auth
 

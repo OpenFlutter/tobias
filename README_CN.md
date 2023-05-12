@@ -58,6 +58,9 @@ resultStatus: 9000,
 
 ```
 
+> 如果你在iOS上遇到了 `utdid`问题, 你可以在[pubspec.yaml](./example/pubspec.yaml)中开启`no_utdid: true`。
+
+
 ## 升级到1.0.0
 
 从`tobais 1.0.0`开始开发者不必重写`AppDelegate`了。如果你以前重写了这个方法,请在 `AppDelegate`中删除相应的代码:

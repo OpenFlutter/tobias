@@ -1,3 +1,6 @@
+# 3.1.0
+* iOS支持在pubspec.yaml中设置是否使用no_utdid.
+
 # 3.0.0
 * 重构Flutter端
 * 现在可以在pubspec.yaml里直接配置url_schme

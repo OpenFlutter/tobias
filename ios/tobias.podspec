@@ -49,7 +49,7 @@ A Flutter plugin For Alipay.
 
   s.ios.deployment_target = '9.0'
 
-  s.default_subspec = fluwx_subspec
+  s.default_subspec = tobias_subspec
 
   s.subspec 'normal' do |sp|
     sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'WebKit'

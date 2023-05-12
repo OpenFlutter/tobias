@@ -40,10 +40,6 @@ A Flutter plugin For Alipay.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.static_framework = true
-  s.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'WebKit'
-  s.libraries             = 'z', 'c++'
-  s.resource              = 'AlipaySDK/Normal/AlipaySDK.bundle'
-  s.vendored_frameworks   = 'AlipaySDK/Normal/AlipaySDK.framework'
   s.dependency 'Flutter'
   s.requires_arc          = true
 
@@ -56,7 +52,6 @@ A Flutter plugin For Alipay.
     sp.libraries             = 'z', 'c++'
     sp.resource              = 'AlipaySDK/Normal/AlipaySDK.bundle'
     sp.vendored_frameworks   = 'AlipaySDK/Normal/AlipaySDK.framework'
-    sp.pod_target_xcconfig = pod_target_xcconfig
   end
 
   s.subspec 'no_utdid' do |sp|
@@ -64,7 +59,6 @@ A Flutter plugin For Alipay.
     sp.libraries             = 'z', 'c++'
     sp.resource              = 'AlipaySDK/NoUtdid/AlipaySDK.bundle'
     sp.vendored_frameworks   = 'AlipaySDK/NoUtdid/AlipaySDK.framework'
-    sp.pod_target_xcconfig = pod_target_xcconfig
   end
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

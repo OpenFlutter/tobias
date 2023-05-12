@@ -73,7 +73,7 @@ project.targets.each do |target|
                 urlTypes = []
                 result["CFBundleURLTypes"] = urlTypes
             end
-            isUrlTypeExist = urlTypes.any? { |urlType| urlType["CFBundleURLSchemes"] && (urlType["CFBundleURLSchemes"].include? app_id) }
+            isUrlTypeExist = urlTypes.any? { |urlType| urlType["CFBundleURLSchemes"] && (urlType["CFBundleURLSchemes"].include? url_scheme) }
             if !isUrlTypeExist
                 urlTypes << {
                     "CFBundleTypeRole": "Editor",
@@ -136,11 +136,6 @@ project.targets.each do |target|
             if !domains
                 domains = []
                 result["com.apple.developer.associated-domains"] = domains
-            end
-            isApplinksExist = domains.include? applinks
-            if !isApplinksExist
-                domains << applinks
-                File.write(codeSignEntitlementsFile, Plist::Emit.dump(result))
             end
         end
     end

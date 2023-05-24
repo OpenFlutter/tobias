@@ -1,3 +1,6 @@
+# 3.1.0+1
+* 优化iOS yaml读取.
+
 # 3.1.0
 * iOS支持在pubspec.yaml中设置是否使用no_utdid.
 

@@ -1,3 +1,6 @@
+# 3.1.2
+* 支持检查AliPay HongKong是否安装
+
 # 3.1.1
 * 优化iOS yaml读取.
 

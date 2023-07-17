@@ -34,4 +34,10 @@ class MethodChannelTobias extends TobiasPlatform {
   Future<bool> get isAliPayInstalled async {
     return await methodChannel.invokeMethod("isAliPayInstalled");
   }
+
+  /// If the user has installed AliPayHk
+  @override
+  Future<bool> get isAliPayHKInstalled async {
+    return await methodChannel.invokeMethod("isAliPayHKInstalled");
+  }
 }

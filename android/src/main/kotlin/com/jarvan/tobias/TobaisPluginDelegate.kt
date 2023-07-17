@@ -25,6 +25,7 @@ class TobaisPluginDelegate : CoroutineScope {
             "pay" -> pay(call, result)
             "auth" -> auth(call, result)
             "isAliPayInstalled" -> isAliPayInstalled(result)
+            "isAliPayHKInstalled" -> isAliPayHKInstalled(result)
             else -> result.notImplemented()
         }
     }
@@ -47,10 +48,11 @@ class TobaisPluginDelegate : CoroutineScope {
         }
     }
 
-    private suspend fun doPayTask(orderInfo: String): Map<String, String> = withContext(Dispatchers.IO) {
-        val alipay = PayTask(activity)
-        alipay.payV2(orderInfo, true) ?: mapOf<String, String>()
-    }
+    private suspend fun doPayTask(orderInfo: String): Map<String, String> =
+        withContext(Dispatchers.IO) {
+            val alipay = PayTask(activity)
+            alipay.payV2(orderInfo, true) ?: mapOf<String, String>()
+        }
 
 
     private fun auth(call: MethodCall, result: Result) {
@@ -62,10 +64,11 @@ class TobaisPluginDelegate : CoroutineScope {
         }
     }
 
-    private suspend fun doAuthTask(authInfo: String): Map<String, String> = withContext(Dispatchers.IO) {
-        val alipay = AuthTask(activity)
-        alipay.authV2(authInfo, true) ?: mapOf<String, String>()
-    }
+    private suspend fun doAuthTask(authInfo: String): Map<String, String> =
+        withContext(Dispatchers.IO) {
+            val alipay = AuthTask(activity)
+            alipay.authV2(authInfo, true) ?: mapOf<String, String>()
+        }
 
     private fun version(result: Result) {
         launch {
@@ -76,15 +79,23 @@ class TobaisPluginDelegate : CoroutineScope {
         }
     }
 
+    private fun isAliPayHKInstalled(result: Result) {
+        result.success(checkIfInstalledByUri("alipayhk://"))
+    }
+
     private fun isAliPayInstalled(result: Result) {
+        result.success(checkIfInstalledByUri("alipays://"))
+    }
+
+    private fun checkIfInstalledByUri(uri: String): Boolean {
         val manager = activity?.packageManager
-        if (manager != null) {
+        return if (manager != null) {
             val action = Intent(Intent.ACTION_VIEW)
-            action.data = Uri.parse("alipays://")
+            action.data = Uri.parse(uri)
             val list = manager.queryIntentActivities(action, PackageManager.GET_RESOLVED_FILTER)
-            result.success(list != null && list.size > 0)
+            list.isNotEmpty()
         } else {
-            result.error("-1", "can't find packageManager", null)
+            false
         }
     }
 

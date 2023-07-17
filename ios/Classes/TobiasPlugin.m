@@ -37,7 +37,6 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 
 
-
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"pay" isEqualToString:call.method]) {
       [self pay:call result:result];
@@ -47,7 +46,9 @@ __weak TobiasPlugin* __tobiasPlugin;
       [self _auth:call result:result];
   } else if([@"isAliPayInstalled" isEqualToString:call.method]){
       [self  _isAliPayInstalled:call result:result];
-  }else{
+  } else if([@"isAliPayHKInstalled" isEqualToString:call.method]){
+      [self  _isAliPayHKInstalled:call result:result];
+  } else {
       result(FlutterMethodNotImplemented);
   }
 }
@@ -177,6 +178,11 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 -(void) _isAliPayInstalled:(FlutterMethodCall*)call result:(FlutterResult)result {
    BOOL isAliPayInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipays://"]]||[[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipay://"]];
+   result(@(isAliPayInstalled));
+}
+
+-(void) _isAliPayHKInstalled:(FlutterMethodCall*)call result:(FlutterResult)result {
+   BOOL isAliPayInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipayhk://"]];
    result(@(isAliPayInstalled));
 }
 

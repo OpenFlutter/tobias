@@ -21,4 +21,11 @@ class Tobias {
   Future<bool> get isAliPayInstalled async {
     return await TobiasPlatform.instance.isAliPayInstalled;
   }
+
+  /// If the user has installed AliPayHk
+  Future<bool> get isAliPayHKInstalled async {
+    return await TobiasPlatform.instance.isAliPayHKInstalled;
+  }
+
+
 }

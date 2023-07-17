@@ -44,4 +44,8 @@ abstract class TobiasPlatform extends PlatformInterface {
   Future<bool> get isAliPayInstalled {
     throw UnimplementedError('isAliPayInstalled has not been implemented.');
   }
+
+  Future<bool> get isAliPayHKInstalled {
+    throw UnimplementedError('isAliPayHKInstalled has not been implemented.');
+  }
 }

@@ -47,7 +47,7 @@ android {
     }
 
     dependencies {
-        implementation 'com.alipay.sdk:alipaysdk-android:15.8.11@aar'
+        implementation 'com.alipay.sdk:alipaysdk-android:15.8.15'
         implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
         implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 

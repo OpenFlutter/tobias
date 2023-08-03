@@ -1,3 +1,7 @@
+# 3.1.3
+* 修复Flutter module编译问题
+* 降级SDK约束以支持dart 2.
+
 # 3.1.2
 * 支持检查AliPay HongKong是否安装
 

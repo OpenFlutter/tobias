@@ -1,3 +1,7 @@
+# 3.2.0
+* AliPay SDK升级到15.8.15
+* iOS切换至xcframework
+
 # 3.1.3
 * 修复Flutter module编译问题
 * 降级SDK约束以支持dart 2.

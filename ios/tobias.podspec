@@ -30,9 +30,15 @@ end
 
 Pod::UI.puts "using sdk with #{tobias_subspec}"
 
+ignore_security = ''
+if cfg['fluwx'] && cfg['tobias']['ios'] && cfg['tobias']['ios']['ignore_security'] == true
+    ignore_security = '-i'
+end
+Pod::UI.puts "ignore_security: #{ignore_security}"
+
 if cfg['tobias'] && cfg['tobias']['url_scheme']
     url_scheme = cfg['tobias']['url_scheme']
-    system("ruby #{current_dir}/tobias_setup.rb -u #{url_scheme} -p #{project_dir} -n Runner.xcodeproj")
+    system("ruby #{current_dir}/tobias_setup.rb #{ignore_security} -u #{url_scheme} -p #{project_dir} -n Runner.xcodeproj")
 else
     abort("required values:[url_scheme] are missing. Please add them in pubspec.yaml:\ntobias:\n  url_scheme: ${url scheme}\n")
 end

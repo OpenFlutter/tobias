@@ -1,3 +1,6 @@
+# 3.2.1
+* iOS新增ignore_security选项，详见#576
+
 # 3.2.0
 * AliPay SDK升级到15.8.15
 * iOS切换至xcframework

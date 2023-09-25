@@ -86,4 +86,6 @@ flutter:
 
 tobias:
   url_scheme: tobiasexample
+  ios:
+    ignore_security: true
 #  no_utdid: true

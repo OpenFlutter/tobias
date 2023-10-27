@@ -43,7 +43,7 @@ flutter:
         pluginClass: TobiasPlugin
       web:
         pluginClass: TobiasWeb
-        fileName: tobias_web.dart
+        fileName: src/tobias_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

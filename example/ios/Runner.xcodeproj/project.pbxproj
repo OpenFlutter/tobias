@@ -108,7 +108,6 @@
 				11E7FFC5CB7E03531256E733 /* Pods-RunnerTests.release.xcconfig */,
 				814E01EB34D0DDC33D45AD14 /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,7 +227,7 @@
 		97C146E61CF9000F007C117D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					331C80F0294D02FB00263BE5 = {

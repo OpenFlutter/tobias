@@ -1,3 +1,6 @@
+# 3.2.2
+* Fix #151
+
 # 3.2.1
 * iOS新增ignore_security选项，详见#576
 

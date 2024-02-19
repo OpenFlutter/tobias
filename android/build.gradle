@@ -25,8 +25,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.jarvan.tobias'
-    compileSdkVersion 31
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.jarvan.tobias'
+    }
+
+    compileSdk 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
@@ -61,9 +64,9 @@ android {
             useJUnitPlatform()
 
             testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen {false}
+                showStandardStreams = true
             }
         }
     }

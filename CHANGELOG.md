@@ -1,3 +1,6 @@
+# 3.3.1
+* Android 增加namespace
+
 # 3.3.0
 * AliPay SDK升级到15.8.17
 

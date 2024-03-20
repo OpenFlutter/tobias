@@ -79,6 +79,7 @@ A Flutter plugin For Alipay.
   end
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.resource_bundles = {'tobias_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
 
 end
 

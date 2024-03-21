@@ -1,3 +1,6 @@
+# 3.3.2
+* Merge #155: 增加iOS privacy manifest
+
 # 3.3.1
 * Android 增加namespace
 

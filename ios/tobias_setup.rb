@@ -32,6 +32,10 @@ OptionParser.new do |options|
         options_dict[:url_scheme] = opts
     end
 
+    options.on("-l", "--universalLink=UNIVERSALLINK", String, "Universal Link for AliPay") do |opts|
+        options_dict[:universal_link] = opts
+    end
+
 end.parse!
 
 # Minimum required arguments are a project directory and project name
@@ -51,6 +55,12 @@ project = Xcodeproj::Project.open(project_path)
 project.targets.each do |target|
     if target.name == "Runner"
         url_scheme = options_dict[:url_scheme]
+        universal_link = options_dict[:universal_link]
+        applinks = ''
+
+        if (!url_scheme.nil? && !url_scheme.empty?)
+           applinks = "applinks:#{URI.parse(universal_link).host}"
+        end
 
         sectionObject = {}
         project.objects.each do |object|
@@ -142,6 +152,11 @@ project.targets.each do |target|
             if !domains
                 domains = []
                 result["com.apple.developer.associated-domains"] = domains
+            end
+            isApplinksExist = domains.include? applinks
+            if !isApplinksExist
+                domains << applinks
+                File.write(codeSignEntitlementsFile, Plist::Emit.dump(result))
             end
         end
     end

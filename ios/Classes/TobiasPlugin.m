@@ -63,6 +63,13 @@ __weak TobiasPlugin* __tobiasPlugin;
     return [self handleOpenURL:url];
 }
 
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nonnull))restorationHandler{
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+            [[AlipaySDK defaultService] handleOpenUniversalLink:userActivity standbyCallback:^(NSDictionary *resultDic) {
+            }];
+        }
+    return NO;
+}
 
 +(BOOL)handleOpenURL:(NSURL*)url{
   
@@ -127,14 +134,15 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 }
 
--(void) _pay:(FlutterMethodCall*)call result:(FlutterResult)result urlScheme:(NSString *)urlScheme{
+-(void) _pay:(FlutterMethodCall*)call result:(FlutterResult)result  urlScheme:(NSString *)urlScheme{
     self.callback = result;
     
     __weak TobiasPlugin* __self = self;
-
-    [[AlipaySDK defaultService] payOrder:call.arguments[@"order"] fromScheme:urlScheme callback:^(NSDictionary *resultDic) {
-        [__self onPayResultReceived:resultDic];
+    
+    [[AlipaySDK defaultService] payOrder:call.arguments[@"order"] fromScheme:urlScheme fromUniversalLink: call.arguments[@"universalLink"] callback:^(NSDictionary *resultDic){
+            [__self onPayResultReceived:resultDic];
     }];
+
 
 }
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:tobias/tobias.dart';
 
 void main() {
@@ -16,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  final String _platformVersion = 'Unknown';
   final _tobiasPlugin = Tobias();
 
   @override

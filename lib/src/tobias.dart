@@ -3,8 +3,11 @@ import 'tobias_platform_interface.dart';
 
 class Tobias {
   /// [evn] only supports Android due to native AliPaySDK
-  Future<Map> pay(String order, {AliPayEvn evn = AliPayEvn.online}) async {
-    return await TobiasPlatform.instance.pay(order, evn: evn);
+  /// [universalLink] only supports iOS
+  Future<Map> pay(String order,
+      {AliPayEvn evn = AliPayEvn.online, String? universalLink}) async {
+    return await TobiasPlatform.instance
+        .pay(order, evn: evn, universalLink: universalLink);
   }
 
   /// Auth by AliPay
@@ -26,6 +29,4 @@ class Tobias {
   Future<bool> get isAliPayHKInstalled async {
     return await TobiasPlatform.instance.isAliPayHKInstalled;
   }
-
-
 }

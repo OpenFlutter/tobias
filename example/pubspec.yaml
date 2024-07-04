@@ -88,4 +88,5 @@ tobias:
   url_scheme: tobiasexample
   ios:
     ignore_security: true
+    universal_link: https://testdomain.com
 #  no_utdid: true

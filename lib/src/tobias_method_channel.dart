@@ -11,10 +11,12 @@ class MethodChannelTobias extends TobiasPlatform {
   final methodChannel = const MethodChannel('com.jarvanmo/tobias');
 
   /// [evn] only supports Android due to native AliPaySDK
+  /// [universalLink] only supports iOS
   @override
-  Future<Map> pay(String order, {AliPayEvn evn = AliPayEvn.online}) async {
-    return await methodChannel
-        .invokeMethod("pay", {"order": order, "payEnv": evn.index});
+  Future<Map> pay(String order,
+      {AliPayEvn evn = AliPayEvn.online, String? universalLink}) async {
+    return await methodChannel.invokeMethod("pay",
+        {"order": order, "payEnv": evn.index, "universalLink": universalLink});
   }
 
   /// Auth by AliPay

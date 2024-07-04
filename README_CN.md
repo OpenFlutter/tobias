@@ -26,7 +26,9 @@ import 'package:tobias/tobias.dart' ;
 Tobias tobias = Tobias();
 tobias.pay(yourOrder);
 ```
-   
+
+在iOS端, 你还需要配置并传入一个universal link. See [how to configure universal link](https://opendocs.alipay.com/open/0b9qzi).   
+
 返回值是一个包含支付宝支付结果的`map`。其中还包含了一个额外的 `platform`字段，
 它的值为 `iOS` 或 `android`。
 > 注意:Tobias 使用的是 pay_V2.

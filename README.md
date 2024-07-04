@@ -25,6 +25,8 @@ import 'package:tobias/tobias.dart' ;
 Tobias tobias = Tobias();
 tobias.pay(yourOrder);
 ```
+If you're working with iOS, please add and pass universal link. See [how to configure universal link](https://opendocs.alipay.com/open/0b9qzi).
+
 The result is map contains results from AliPay.The result also contains an external filed named `platform` which
 means the result is from `iOS` or `android`.
 Result sample:

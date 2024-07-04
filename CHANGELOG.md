@@ -1,3 +1,7 @@
+# 4.0.0
+* iOS中的AliPay SDK升级到15.8.18
+* iOS的支付功能需要添加universal link
+
 # 3.3.2
 * Merge #155: 增加iOS privacy manifest
 

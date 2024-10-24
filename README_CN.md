@@ -1,5 +1,12 @@
 ![logo](./arts/tobias_logo.png)
+
+[![pub package](https://img.shields.io/pub/v/tobias.svg)](https://pub.dartlang.org/packages/tobias)
 ![Build status](https://github.com/OpenFlutter/tobias/actions/workflows/build_test.yml/badge.svg)
+[![GitHub stars](https://img.shields.io/github/stars/OpenFlutter/tobias)](https://github.com/OpenFlutter/tobias/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/OpenFlutter/tobias)](https://github.com/OpenFlutter/tobias/network)
+[![GitHub license](https://img.shields.io/github/license/OpenFlutter/tobias)](https://github.com/OpenFlutter/tobias/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/OpenFlutter/tobias)](https://github.com/OpenFlutter/tobias/issues)
+<a target="_blank" href="https://qm.qq.com/q/TJ29rkzywM"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="OpenFlutter" title="OpenFlutter"></a>
 
 > QQ群: 1003811176
 
@@ -7,19 +14,31 @@
 
 ## Tobias是什么
 
-Tobias是一个为支付宝支付SDK做的Flutter插件。
+Tobias 是一个为支付宝支付 SDK 做的 Flutter 插件，支持 iOS, Android 和 OpenHarmony
 
 ## 开始
 
 在使用前强烈阅读[官方接入指南](https://docs.open.alipay.com/204/105051/)。
 
-1.  您需要在[pubspec.yaml](./example/pubspec.yaml)中配置`url_scheme`。 Url scheme是一个独特的字符串用来重新启动你的app
+1. 您需要在[pubspec.yaml](./example/pubspec.yaml)中配置`url_scheme`。 Url scheme是一个独特的字符串用来重新启动你的app
 但是请注意字符串`_`是不合法的.
+2. 如果在 OpenHarmony, 请在项目中的 `module.json5` 文件中的 `module.querySchemes` 中添加 `alipays`，如下:
+
+```json5
+{
+  "module": {
+    "querySchemes": [
+      "alipays"
+    ],
+  }
+}
+```
 
 ## 支付
-Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:   
-如果安卓出现Unhandled Exception: MissingPluginException(No implementation found for method pay on channel com.jarvanmo/tobias)错误    
-请将[android/build.gradle](https://github.com/OpenFlutter/tobias/blob/master/android/build.gradle#L5)更改为同一版本。    
+
+Tobias使用起来很简单，只需要把从服务器取得的字符串交给Tobias就行了:
+如果安卓出现Unhandled Exception: MissingPluginException(No implementation found for method pay on channel com.jarvanmo/tobias)错误
+请将[android/build.gradle](https://github.com/OpenFlutter/tobias/blob/master/android/build.gradle#L5)更改为同一版本。
 
 ```dart
 import 'package:tobias/tobias.dart' ;
@@ -27,13 +46,15 @@ Tobias tobias = Tobias();
 tobias.pay(yourOrder);
 ```
 
-在iOS端, 你还需要配置并传入一个universal link. See [how to configure universal link](https://opendocs.alipay.com/open/0b9qzi).   
+在iOS端, 你还需要配置并传入一个universal link. See [how to configure universal link](https://opendocs.alipay.com/open/0b9qzi).
 
 返回值是一个包含支付宝支付结果的`map`。其中还包含了一个额外的 `platform`字段，
 它的值为 `iOS` 或 `android`。
 > 注意:Tobias 使用的是 pay_V2.
 
 ## 授权登录
+
+> 当前在 OpenHarmony 上不支持授权登录
 
 ```
 import 'package:tobias/tobias.dart' ;
@@ -46,10 +67,11 @@ tobias.auth("your auth str);
 ```
 Tobias tobias = Tobias();
 var result = await tobias.isAliPayInstalled;
-``` 
+```
 
 你可以通过调用 `tobias.version` 来获取对应平上的SDK版本，其返回值是一个包含 `version` 和 `platform`的map。
 结果示例:
+
 ```dart
 {
 result: partner="2088411752388544"&seller_id="etongka123@163.com"&out_trade_no="180926084213001"&subject="test pay"&total_fee="0.01"&notify_url="http://127.0.0.1/alipay001"&service="mobile.securitypay.pay"&payment_type="1"&_input_charset="utf-8"&it_b_pay="30m"&return_url="m.alipay.com"&success="true"&sign_type="RSA"&sign="nCZ8MDhsNvYNAbrLZJZ2VUy6vydgAp+JCq1aQo6ORDYtI9zwtnja3qNGQNiDJCuktoIj7fSTM487XhjPDqnOreZjIA1GJpxu9D1I3nMXIn1M7DfZ0noDwXcYZ438/jbYac7g8mhpwdKGweLCAni9mO3Y6q3iBFkox8i9PcsGxJY=",
@@ -61,7 +83,6 @@ resultStatus: 9000,
 ```
 
 > 如果你在iOS上遇到了 `utdid`问题, 你可以在[pubspec.yaml](./example/pubspec.yaml)中开启`no_utdid: true`。
-
 
 ## 升级到1.0.0
 
@@ -79,6 +100,7 @@ resultStatus: 9000,
 ```
 
 如果一定要重写这2个方法,请确保你调用了 `super`:
+
 ```objective-c
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -92,16 +114,15 @@ resultStatus: 9000,
 }
 ```
 
-## 请作者喝杯咖啡。
+## 请作者喝杯咖啡
 
 <img src="./arts/wx.jpeg" height="300">  <img src="./arts/ali.jpeg" height="300">
 
 ### 欢迎关注公众号
+
 ![subscribe](./arts/wx_subscription.png)
 
-
 ## LICENSE
-
 
     Copyright 2018 OpenFlutter Project
 

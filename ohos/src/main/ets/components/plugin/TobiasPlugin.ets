@@ -11,8 +11,10 @@ import {
 import { bundleManager, common } from '@kit.AbilityKit';
 import * as alipay from "@cashier_alipay/cashiersdk"
 import { BusinessError } from '@kit.BasicServicesKit';
+import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 
 const MESSAGE_CHANNEL_NAME = "com.jarvanmo/tobias";
+const TAG: string = 'TobiasPlugin';
 
 /** TobiasPlugin **/
 export default class TobiasPlugin implements FlutterPlugin, MethodCallHandler, AbilityAware {
@@ -71,17 +73,44 @@ export default class TobiasPlugin implements FlutterPlugin, MethodCallHandler, A
 
   pay(call: MethodCall, result: MethodResult): void {
     const order: string = call.argument("order");
-    const isShowLoading: boolean = true;
-    const payment = new alipay.Pay();
-    payment.pay(order, isShowLoading)
-      .then((res: Map<string, string>) => {
-        result.success(res);
-      })
-      .catch((_: BusinessError) => {
-        const resp: Map<string, string> = new Map();
-        resp.set("resultStatus", "-1");
-        result.success(resp);
-      });
+    const isOhosAutoSub: boolean = call.argument("isOhosAutoSub");
+    if(isOhosAutoSub){
+      console.log(TAG, '当前为自动订阅');
+      let context: common.UIAbilityContext = getContext(this) as common.UIAbilityContext;
+      let openLinkOptions: OpenLinkOptions = {
+        appLinkingOnly: false
+      };
+      const resp: Map<string, string> = new Map();
+      try {  
+        context.openLink(order, openLinkOptions)
+          .then(() => {
+            console.log(TAG, 'open link success.');
+            resp.set("resultStatus", "success");
+            result.success(resp)
+          }).catch((err: BusinessError) => {
+          console.log(TAG, `open link failed. Code is ${err.code}, message is ${err.message}`);
+          resp.set("resultStatus", "erroe");
+          result.success(resp)
+        })
+      } catch (paramError) {
+        console.log(TAG, `Failed to start link. Code is ${paramError.code}, message is ${paramError.message}`);
+        resp.set("resultStatus", "erroe");
+        result.success(resp)
+      }
+    } else {
+      console.log(TAG, '当前为非自动订阅');
+      const isShowLoading: boolean = true;
+      const payment = new alipay.Pay();
+      payment.pay(order, isShowLoading)
+        .then((res: Map<string, string>) => {
+          result.success(res);
+        })
+        .catch((_: BusinessError) => {
+          const resp: Map<string, string> = new Map();
+          resp.set("resultStatus", "-1");
+          result.success(resp);
+        });
+      }
   }
 
   isAliPayInstalled(result: MethodResult): void {

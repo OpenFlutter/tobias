@@ -5,9 +5,16 @@ class Tobias {
   /// [evn] only supports Android due to native AliPaySDK
   /// [universalLink] only supports iOS
   Future<Map> pay(String order,
-      {AliPayEvn evn = AliPayEvn.online, String? universalLink}) async {
+      {AliPayEvn evn = AliPayEvn.online,
+      String? universalLink,
+      bool isOhosAutoSub = false}) async {
     return await TobiasPlatform.instance
         .pay(order, evn: evn, universalLink: universalLink);
+  }
+
+  /// 鸿蒙 - 自动订阅支付
+  Future<Map> payOhosAutoSub(String order) async {
+    return await TobiasPlatform.instance.payOhosAutoSub(order);
   }
 
   /// Auth by AliPay

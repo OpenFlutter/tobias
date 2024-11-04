@@ -14,9 +14,17 @@ class MethodChannelTobias extends TobiasPlatform {
   /// [universalLink] only supports iOS
   @override
   Future<Map> pay(String order,
-      {AliPayEvn evn = AliPayEvn.online, String? universalLink}) async {
+      {AliPayEvn evn = AliPayEvn.online,
+      String? universalLink,
+      bool isOhosAutoSub = false}) async {
     return await methodChannel.invokeMethod("pay",
         {"order": order, "payEnv": evn.index, "universalLink": universalLink});
+  }
+
+  /// 鸿蒙 - 自动订阅支付
+  @override
+  Future<Map> payOhosAutoSub(String order) async {
+    return await methodChannel.invokeMethod("payOhosAutoSub", {"order": order});
   }
 
   /// Auth by AliPay

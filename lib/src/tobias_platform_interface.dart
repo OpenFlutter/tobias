@@ -31,8 +31,7 @@ abstract class TobiasPlatform extends PlatformInterface {
   /// [evn] only supports Android due to native AliPaySDK
   Future<Map> pay(String order,
       {AliPayEvn evn = AliPayEvn.online,
-      String? universalLink,
-      bool isOhosAutoSub = false}) async {
+      String? universalLink}) async {
     throw UnimplementedError('pay() has not been implemented.');
   }
 

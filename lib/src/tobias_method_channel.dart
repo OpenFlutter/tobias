@@ -15,8 +15,7 @@ class MethodChannelTobias extends TobiasPlatform {
   @override
   Future<Map> pay(String order,
       {AliPayEvn evn = AliPayEvn.online,
-      String? universalLink,
-      bool isOhosAutoSub = false}) async {
+      String? universalLink}) async {
     return await methodChannel.invokeMethod("pay",
         {"order": order, "payEnv": evn.index, "universalLink": universalLink});
   }

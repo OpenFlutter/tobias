@@ -12,6 +12,11 @@ class Tobias {
         .pay(order, evn: evn, universalLink: universalLink);
   }
 
+  /// 鸿蒙 - 自动订阅支付
+  Future<Map> payOhosAutoSub(String order) async {
+    return await TobiasPlatform.instance.payOhosAutoSub(order);
+  }
+
   /// Auth by AliPay
   Future<Map> auth(String auth) async {
     return await TobiasPlatform.instance.auth(auth);

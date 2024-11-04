@@ -21,6 +21,12 @@ class MethodChannelTobias extends TobiasPlatform {
         {"order": order, "payEnv": evn.index, "universalLink": universalLink});
   }
 
+  /// 鸿蒙 - 自动订阅支付
+  @override
+  Future<Map> payOhosAutoSub(String order) async {
+    return await methodChannel.invokeMethod("payOhosAutoSub", {"order": order});
+  }
+
   /// Auth by AliPay
   @override
   Future<Map> auth(String auth) async {

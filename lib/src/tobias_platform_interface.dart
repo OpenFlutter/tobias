@@ -36,6 +36,11 @@ abstract class TobiasPlatform extends PlatformInterface {
     throw UnimplementedError('pay() has not been implemented.');
   }
 
+  /// 鸿蒙 - 自动订阅支付
+  Future<Map> payOhosAutoSub(String order) async {
+    throw UnimplementedError('payOhosAutoSub() has not been implemented.');
+  }
+
   Future<Map> auth(String auth) async {
     throw UnimplementedError('auth() has not been implemented.');
   }

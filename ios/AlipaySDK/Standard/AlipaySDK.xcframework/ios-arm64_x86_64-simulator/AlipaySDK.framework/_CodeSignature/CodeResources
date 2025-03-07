@@ -42,11 +42,15 @@
 		</data>
 		<key>Headers/AFServiceCenter.h</key>
 		<data>
-		AQaJpNuFjISlEnxg4oc++V6HKDs=
+		7ireGR/zUTRiZH50VQ+OgMW++Bc=
 		</data>
 		<key>Headers/AFServiceResponse.h</key>
 		<data>
 		kmXpMRX3EHJQ2GcKHGTF42sh5W0=
+		</data>
+		<key>Headers/APDeductSDK.h</key>
+		<data>
+		13yBfHG47tXmdwRwnu5NN1KyCHo=
 		</data>
 		<key>Headers/APayAuthInfo.h</key>
 		<data>
@@ -54,11 +58,11 @@
 		</data>
 		<key>Headers/AlipaySDK.h</key>
 		<data>
-		rnt9w8ZNAwK+Atg2Lz9JY8i50gE=
+		Y60Z1t8EOjZB+CteVngHnWGyrSw=
 		</data>
 		<key>Headers/AlipaySDKModule.h</key>
 		<data>
-		ReUrWtqy0Cz/RQ8aegamHrqqmWQ=
+		rmjza3nhd1irhzw9ibXtC2KzeP8=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -183,11 +187,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AQaJpNuFjISlEnxg4oc++V6HKDs=
+			7ireGR/zUTRiZH50VQ+OgMW++Bc=
 			</data>
 			<key>hash2</key>
 			<data>
-			6LTn9ui9fej1+gAIMRA0A8tYete1h+5FyCKvdDubNTY=
+			XrL2hJwm2NvV5DXNsljHkB3ceJzl42mp4tQSGDAy2Eo=
 			</data>
 		</dict>
 		<key>Headers/AFServiceResponse.h</key>
@@ -199,6 +203,17 @@
 			<key>hash2</key>
 			<data>
 			Asp+7KYSwYGi9WCHRSYYiTb3SBRlkdfI0FVEIYrI3gg=
+			</data>
+		</dict>
+		<key>Headers/APDeductSDK.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			13yBfHG47tXmdwRwnu5NN1KyCHo=
+			</data>
+			<key>hash2</key>
+			<data>
+			Pcea4k27DIywJEeKul2/XByIIroBf3luNfFxC7SctAQ=
 			</data>
 		</dict>
 		<key>Headers/APayAuthInfo.h</key>
@@ -216,22 +231,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rnt9w8ZNAwK+Atg2Lz9JY8i50gE=
+			Y60Z1t8EOjZB+CteVngHnWGyrSw=
 			</data>
 			<key>hash2</key>
 			<data>
-			+QeaUT1rQP8MWM0H/9KSlQ1rT18dgCIfsem/LycmPHY=
+			OxxFaLnOktKhrwwO6ikwi2a4ggZKrvKqQ1zC8UeSIKw=
 			</data>
 		</dict>
 		<key>Headers/AlipaySDKModule.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ReUrWtqy0Cz/RQ8aegamHrqqmWQ=
+			rmjza3nhd1irhzw9ibXtC2KzeP8=
 			</data>
 			<key>hash2</key>
 			<data>
-			UQzcrN1u4b3+fTJAfl9hqXNOiPwf7ovkQmUUfbn0dhI=
+			DMxFPfDv6e0cVG3wY69gTh+zYqx0+zLef2IBk2EKSVw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

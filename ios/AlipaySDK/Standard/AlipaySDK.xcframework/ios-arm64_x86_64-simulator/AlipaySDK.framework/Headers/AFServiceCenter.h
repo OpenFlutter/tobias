@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, AFService) {
 
 extern NSString * const kAFServiceOptionBizParams;      // 钱包服务调用入参
 extern NSString * const kAFServiceOptionCallbackScheme; // 业务回跳当前app的scheme
+extern NSString * const kAFServiceOptionCallbackUlink;  // 业务回跳当前app的ulink
 extern NSString * const kAFServiceOptionNotUseLanding;  // 不使用支付宝提示下载页做补偿,为true时需要商户自己处理用户未安装支付宝的情况
 extern NSString * const kAFServiceBizParamsKeyUrl;      // 独立签约入参url
 
@@ -52,5 +53,16 @@ typedef void(^AFServiceResultBlock)(AFServiceResponse *response);
  */
 + (void)handleResponseURL:(NSURL *)url
            withCompletion:(AFServiceResultBlock)block;
+
+
+/**
+ *  处理支付宝app支付后通过universalLink跳回商户app携带的支付结果处理
+ *
+ *  @param userActivity            系统接口传入的userActivity
+ *  @param block     支付结果回调 为nil时默认使用支付接口的completionBlock
+ *  @return       YES表示能处理，NO表示不能处理
+ */
++ (BOOL)handleOpenUniversalLink:(NSUserActivity *)userActivity
+                 withCompletion:(AFServiceResultBlock)block;
 
 @end

@@ -10,6 +10,7 @@
 #define AlipaySDKModule_h
 
 #import "AlipaySDK.h"
+#import "APDeductSDK.h"
 #import "APayAuthInfo.h"
 #import "AFServiceCenter.h"
 #import "AFServiceResponse.h"

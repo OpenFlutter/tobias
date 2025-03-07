@@ -2,14 +2,14 @@ group 'com.jarvan.tobias'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.8.22'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.android.tools.build:gradle:8.7.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -52,8 +52,8 @@ android {
 
     dependencies {
         implementation 'com.alipay.sdk:alipaysdk-android:15.8.33'
-        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
 
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'

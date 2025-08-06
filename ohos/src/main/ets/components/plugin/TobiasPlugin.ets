@@ -76,7 +76,7 @@ export default class TobiasPlugin implements FlutterPlugin, MethodCallHandler, A
 
   pay(call: MethodCall, result: MethodResult): void {
     const order: string = call.argument("order");
-    const isShowLoading: boolean = true;
+    const isShowLoading: boolean = call.argument("showPayLoading");
     const payment = new alipay.Pay();
     payment.pay(order, isShowLoading)
       .then((res: Map<string, string>) => {

@@ -1,7 +1,5 @@
 PODS:
   - Flutter (1.0.0)
-  - integration_test (0.0.1):
-    - Flutter
   - tobias (0.0.1):
     - Flutter
     - tobias/normal (= 0.0.1)
@@ -10,22 +8,18 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - tobias (from `.symlinks/plugins/tobias/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  integration_test:
-    :path: ".symlinks/plugins/integration_test/ios"
   tobias:
     :path: ".symlinks/plugins/tobias/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  integration_test: 13825b8a9334a850581300559b8839134b124670
-  tobias: cc3bf3abfe6138bbcac1d013b86b8bd872bbf613
+  tobias: f9c405df3ded93ad34539200fe3e7779cfb19081
 
 PODFILE CHECKSUM: beab77b38961de946f08660e554f80ac174dc842
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

@@ -6,6 +6,7 @@ class Tobias {
   /// [universalLink] only supports iOS
   Future<Map> pay(String order,
       {AliPayEvn evn = AliPayEvn.online,
+      bool showPayLoading = true,
       String? universalLink}) async {
     return await TobiasPlatform.instance
         .pay(order, evn: evn, universalLink: universalLink);

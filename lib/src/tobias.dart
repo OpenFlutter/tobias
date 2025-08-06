@@ -4,6 +4,7 @@ import 'tobias_platform_interface.dart';
 class Tobias {
   /// [evn] only supports Android due to native AliPaySDK
   /// [universalLink] only supports iOS
+  /// [showPayLoading] controls if there is loading while paying, only supports Android and OpenHarmony.
   Future<Map> pay(String order,
       {AliPayEvn evn = AliPayEvn.online,
       bool showPayLoading = true,

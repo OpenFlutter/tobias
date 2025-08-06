@@ -2,7 +2,7 @@
 * Android Sdk升级到15.8.35
 * iOS Sdk升级到15.8.35
 * OpenHarmony Sdk升级到15.8.37
-
+* 支付支持参数：showPayLoading
 
 ## 5.1.2
 * Android Sdk升级到15.8.33

@@ -58,11 +58,15 @@
 		</data>
 		<key>Headers/AlipaySDK.h</key>
 		<data>
-		Y60Z1t8EOjZB+CteVngHnWGyrSw=
+		xZEhmql4gBtWbm4230p5s1KQYWs=
 		</data>
 		<key>Headers/AlipaySDKModule.h</key>
 		<data>
 		rmjza3nhd1irhzw9ibXtC2KzeP8=
+		</data>
+		<key>Headers/MQPWebViewResourcesManager.h</key>
+		<data>
+		hFKCEtl5c7rTgsVg20CdoQsEn7w=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -231,11 +235,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y60Z1t8EOjZB+CteVngHnWGyrSw=
+			xZEhmql4gBtWbm4230p5s1KQYWs=
 			</data>
 			<key>hash2</key>
 			<data>
-			OxxFaLnOktKhrwwO6ikwi2a4ggZKrvKqQ1zC8UeSIKw=
+			WYx5OY3hKn7LLx0MOAbT6yQfJdJIVffGeaAb7SvJYEs=
 			</data>
 		</dict>
 		<key>Headers/AlipaySDKModule.h</key>
@@ -247,6 +251,17 @@
 			<key>hash2</key>
 			<data>
 			DMxFPfDv6e0cVG3wY69gTh+zYqx0+zLef2IBk2EKSVw=
+			</data>
+		</dict>
+		<key>Headers/MQPWebViewResourcesManager.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hFKCEtl5c7rTgsVg20CdoQsEn7w=
+			</data>
+			<key>hash2</key>
+			<data>
+			UGZSSq5Gro0V4agivgcaFCWLNyB4q9NvqfxYVxvBjcI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

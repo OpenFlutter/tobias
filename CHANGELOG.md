@@ -1,4 +1,12 @@
-## 5.2.0
+# 5.3.0
+* Android Sdk升级到15.8.38
+* iOS Sdk升级到15.8.37.1
+* OpenHarmony Sdk升级到15.8.39
+* 新增商用appId注册
+* Android kotlin 升级到2.1.0
+* Android mini SDK升级到24
+
+# 5.2.0
 * Android Sdk升级到15.8.35
 * iOS Sdk升级到15.8.35
 * OpenHarmony Sdk升级到15.8.37

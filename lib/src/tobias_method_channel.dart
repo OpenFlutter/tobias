@@ -10,6 +10,12 @@ class MethodChannelTobias extends TobiasPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('com.jarvanmo/tobias');
 
+
+  @override
+  Future<void> registerApp(String appId,{String? universalLink}) async{
+    return await methodChannel.invokeMethod("registerApp", {"appId": appId, "universalLink": universalLink});
+  }
+
   /// [evn] only supports Android due to native AliPaySDK
   /// [universalLink] only supports iOS
   @override

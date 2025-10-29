@@ -45,6 +45,9 @@ export default class TobiasPlugin implements FlutterPlugin, MethodCallHandler, A
 
   onMethodCall(call: MethodCall, result: MethodResult): void {
     switch (call.method) {
+      case "registerApp":
+        this.registerApp(call, result);
+        break;
       case "version":
         this.version(result);
         break;
@@ -67,6 +70,12 @@ export default class TobiasPlugin implements FlutterPlugin, MethodCallHandler, A
         result.notImplemented();
         break;
     }
+  }
+
+  registerApp(call: MethodCall, result: MethodResult): void {
+    const appId: string = call.argument("appId");
+    const pay = new Pay()
+    pay.registerApp(appId)
   }
 
   version(result: MethodResult): void {

@@ -40,6 +40,8 @@ __weak TobiasPlugin* __tobiasPlugin;
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"pay" isEqualToString:call.method]) {
       [self pay:call result:result];
+  } else if([@"registerApp" isEqualToString:call.method]){
+      [self registerApp:call result:result];
   } else if([@"version" isEqualToString:call.method]){
       [self getVersion:call result:result];
   } else if([@"auth" isEqualToString:call.method]){
@@ -171,6 +173,11 @@ __weak TobiasPlugin* __tobiasPlugin;
         version = @"";
     }
     result(version);
+}
+
+-(void) registerApp:(FlutterMethodCall*)call result:(FlutterResult)result{
+    [[AlipaySDK defaultService] registerApp:call.arguments[@"appId"] universalLink:call.arguments[@"universalLink"]];
+    result(nil);
 }
 
 -(NSString*)fetchUrlScheme{

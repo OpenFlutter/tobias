@@ -74,19 +74,19 @@ A Flutter plugin For Alipay.
   s.subspec 'normal' do |sp|
     sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'WebKit'
     sp.libraries             = 'z', 'c++'
-    sp.resource              = 'AlipaySDK/Standard/AlipaySDK.bundle'
-    sp.vendored_frameworks   = 'AlipaySDK/Standard/AlipaySDK.xcframework'
+    sp.resource              = 'tobias/AlipaySDK/Standard/AlipaySDK.bundle'
+    sp.vendored_frameworks   = 'tobias/AlipaySDK/Standard/AlipaySDK.xcframework'
   end
 
   s.subspec 'no_utdid' do |sp|
     sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'WebKit'
     sp.libraries             = 'z', 'c++'
-    sp.resource              = 'AlipaySDK/NoUtdid/AlipaySDK.bundle'
-    sp.vendored_frameworks   = 'AlipaySDK/NoUtdid/AlipaySDK.xcframework'
+    sp.resource              = 'tobias/AlipaySDK/NoUtdid/AlipaySDK.bundle'
+    sp.vendored_frameworks   = 'tobias/AlipaySDK/NoUtdid/AlipaySDK.xcframework'
   end
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.resource_bundles = {'tobias_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+  s.resource_bundles = {'tobias_privacy' => ['tobias/Sources/tobias/PrivacyInfo.xcprivacy']}
 
 end
 

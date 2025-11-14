@@ -25,7 +25,17 @@ I highly recommend that you read  [the official documents](https://docs.open.ali
 1. You have to config `url_scheme` in [pubspec.yaml](./example/pubspec.yaml). Url scheme is a unique string to
 resume you app on iOS but please note that `_` is invalid.
 
-2. for OpenHarmony, you have to add scheme `alipays` to module.json5 in your project like this:
+2. For iOS, you can use either CocoaPods (default) or Swift Package Manager (SPM):
+   - **CocoaPods**: The plugin includes a `podspec` file and will work automatically with CocoaPods.
+   - **Swift Package Manager**: The plugin includes a `Package.swift` file. To use SPM:
+     1. In Xcode, go to your project settings
+     2. Add the local package by selecting "Add Package Dependency"
+     3. Choose "Add Local..." and select the `ios` directory of this plugin
+     4. By default, the Standard AlipaySDK variant is used. To use the NoUtdid variant, modify `ios/Package.swift`:
+        - Change the `binaryTarget` path from `"AlipaySDK/Standard/AlipaySDK.xcframework"` to `"AlipaySDK/NoUtdid/AlipaySDK.xcframework"`
+        - Change the bundle resource path from `"../AlipaySDK/Standard/AlipaySDK.bundle"` to `"../AlipaySDK/NoUtdid/AlipaySDK.bundle"`
+
+3. For OpenHarmony, you have to add scheme `alipays` to module.json5 in your project like this:
 
 ```json5
 {

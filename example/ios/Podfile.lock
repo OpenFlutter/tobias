@@ -1,24 +1,15 @@
 PODS:
   - Flutter (1.0.0)
-  - tobias (0.0.1):
-    - Flutter
-    - tobias/normal (= 0.0.1)
-  - tobias/normal (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - tobias (from `.symlinks/plugins/tobias/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  tobias:
-    :path: ".symlinks/plugins/tobias/ios"
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  tobias: f9c405df3ded93ad34539200fe3e7779cfb19081
 
 PODFILE CHECKSUM: a5dd15803c05a42a9ae1068254e24631f03bf853
 

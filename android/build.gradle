@@ -1,16 +1,16 @@
 group 'com.jarvan.tobias'
-version '1.0-SNAPSHOT'
+version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = '2.1.0'
+    ext.kotlin_version = "2.2.20"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.9.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath("com.android.tools.build:gradle:8.11.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 
@@ -21,42 +21,35 @@ allprojects {
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 
 android {
-    if (project.android.hasProperty("namespace")) {
-        namespace 'com.jarvan.tobias'
-    }
+    namespace = "com.example.flutter_spm_test"
 
-    compileSdk 34
+    compileSdk = 36
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = JavaVersion.VERSION_17
     }
 
     sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
     }
 
     defaultConfig {
-        minSdkVersion 24
-        consumerProguardFiles 'consumer-proguard-rules.txt'
+        minSdk = 24
     }
 
     dependencies {
-        implementation 'com.alipay.sdk:alipaysdk-android:15.8.38'
-        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2'
-        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
-
-        testImplementation 'org.jetbrains.kotlin:kotlin-test'
-        testImplementation 'org.mockito:mockito-core:5.0.0'
+        testImplementation("org.jetbrains.kotlin:kotlin-test")
+        testImplementation("org.mockito:mockito-core:5.0.0")
     }
 
     testOptions {

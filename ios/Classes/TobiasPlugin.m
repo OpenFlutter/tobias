@@ -67,9 +67,11 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nonnull))restorationHandler{
     if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-            [[AlipaySDK defaultService] handleOpenUniversalLink:userActivity standbyCallback:^(NSDictionary *resultDic) {
-            }];
-        }
+        __weak TobiasPlugin* __self = self;
+        [[AlipaySDK defaultService] handleOpenUniversalLink:userActivity standbyCallback:^(NSDictionary *resultDic) {
+            [__self onPayResultReceived:resultDic];
+        }];
+    }
     return NO;
 }
 

@@ -24,6 +24,10 @@
 		<data>
 		sgZ31kacqvJAHbN7Ywt45Mglc6o=
 		</data>
+		<key>AlipaySDK.bundle/bridge_v2.js</key>
+		<data>
+		0ORXwqR2T3BV9AKKT3gXm0F6uSk=
+		</data>
 		<key>AlipaySDK.bundle/refresh@2x.png</key>
 		<data>
 		MrXCB0ZUwnx4+zfw1X2jzlNdDc4=
@@ -48,6 +52,10 @@
 		<data>
 		kmXpMRX3EHJQ2GcKHGTF42sh5W0=
 		</data>
+		<key>Headers/APCellularHTTPSClient.h</key>
+		<data>
+		yNfhJgPzYeKfPYOd9WEovfNNo9g=
+		</data>
 		<key>Headers/APDeductSDK.h</key>
 		<data>
 		13yBfHG47tXmdwRwnu5NN1KyCHo=
@@ -58,7 +66,7 @@
 		</data>
 		<key>Headers/AlipaySDK.h</key>
 		<data>
-		V8+h6mATmGq6su9Q2jN6ydjIsZU=
+		jAFdPsaU6T6uVFxorNTHDmZzPu4=
 		</data>
 		<key>Headers/AlipaySDKModule.h</key>
 		<data>
@@ -143,6 +151,17 @@
 			5Sf9BPwyQ3bHoIdJYsGubF6CsgDuqngeWVkh3Ggm5Rc=
 			</data>
 		</dict>
+		<key>AlipaySDK.bundle/bridge_v2.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0ORXwqR2T3BV9AKKT3gXm0F6uSk=
+			</data>
+			<key>hash2</key>
+			<data>
+			ONmHtMY9gBaTJ25tZ5yecRgaVu0Ig4h4hGgwT5WbwLM=
+			</data>
+		</dict>
 		<key>AlipaySDK.bundle/refresh@2x.png</key>
 		<dict>
 			<key>hash</key>
@@ -209,6 +228,17 @@
 			Asp+7KYSwYGi9WCHRSYYiTb3SBRlkdfI0FVEIYrI3gg=
 			</data>
 		</dict>
+		<key>Headers/APCellularHTTPSClient.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yNfhJgPzYeKfPYOd9WEovfNNo9g=
+			</data>
+			<key>hash2</key>
+			<data>
+			6fOM+jlhXcqvyVClPFnzI6uFgtth0Tz8Uaw71hjKMxY=
+			</data>
+		</dict>
 		<key>Headers/APDeductSDK.h</key>
 		<dict>
 			<key>hash</key>
@@ -235,11 +265,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V8+h6mATmGq6su9Q2jN6ydjIsZU=
+			jAFdPsaU6T6uVFxorNTHDmZzPu4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2CbgGf6/2Nq3BVItmjJSedShVW6lLogaHzbbxvzjA4o=
+			aWjW6AdmhQrM/IH2hUKaIL4M8g8LsHMXHvyfWieU8MI=
 			</data>
 		</dict>
 		<key>Headers/AlipaySDKModule.h</key>

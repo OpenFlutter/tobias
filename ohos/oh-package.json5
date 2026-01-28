@@ -7,6 +7,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@ohos/flutter_ohos": "file:./har/flutter.har",
-    "@cashier_alipay/cashiersdk": "^15.8.39"
+    "@cashier_alipay/cashiersdk": "^15.8.42"
   }
 }

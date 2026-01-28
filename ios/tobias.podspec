@@ -72,14 +72,14 @@ A Flutter plugin For Alipay.
   s.default_subspec = tobias_subspec
 
   s.subspec 'normal' do |sp|
-    sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'WebKit'
+    sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'Network', 'CoreMotion', 'WebKit'
     sp.libraries             = 'z', 'c++'
     sp.resource              = 'AlipaySDK/Standard/AlipaySDK.bundle'
     sp.vendored_frameworks   = 'AlipaySDK/Standard/AlipaySDK.xcframework'
   end
 
   s.subspec 'no_utdid' do |sp|
-    sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'WebKit'
+    sp.frameworks            = 'SystemConfiguration', 'CoreTelephony', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'Network', 'CoreMotion', 'WebKit'
     sp.libraries             = 'z', 'c++'
     sp.resource              = 'AlipaySDK/NoUtdid/AlipaySDK.bundle'
     sp.vendored_frameworks   = 'AlipaySDK/NoUtdid/AlipaySDK.xcframework'

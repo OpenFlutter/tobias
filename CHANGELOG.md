@@ -1,3 +1,8 @@
+# 5.3.2
+* Android Sdk升级到15.8.40
+* iOS Sdk升级到15.8.40.1
+* OpenHarmony Sdk升级到15.8.42
+
 # 5.3.1
 * Merge #176
 

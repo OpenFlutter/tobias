@@ -103,6 +103,26 @@ __weak TobiasPlugin* __tobiasPlugin;
     return NO;
 }
 
+- (BOOL)scene:(UIScene*)scene openURLContexts:(NSSet<UIOpenURLContext*>*)URLContexts {
+    for (UIOpenURLContext *context in URLContexts) {
+        NSURL *url = context.URL;
+        if ([url.host isEqualToString:@"safepay"]) {
+            __weak TobiasPlugin* __self = self;
+
+            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+                [__self onPayResultReceived:resultDic];
+            }];
+
+            [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+                [__self onAuthResultReceived:resultDic];
+            }];
+
+            return YES;
+        }
+    }
+    return NO;
+}
+
 -(void)onPayResultReceived:(NSDictionary*)resultDic{
 
     if(self.callback!=nil){

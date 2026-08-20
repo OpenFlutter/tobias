@@ -22,8 +22,7 @@ Tobias is a  flutter plugin for AliPaySDK, works on iOS, Android and OpenHarmony
 
 I highly recommend that you read  [the official documents](https://docs.open.alipay.com/204/105051/) before using tobias.
 
-1. You have to config `url_scheme` in [pubspec.yaml](./example/pubspec.yaml). Url scheme is a unique string to
-resume you app on iOS but please note that `_` is invalid.
+1. For iOS, you have to configure your Xcode project manually. See [iOS Configuration](#ios-configuration).
 
 2. for OpenHarmony, you have to add scheme `alipays` to module.json5 in your project like this:
 
@@ -36,6 +35,78 @@ resume you app on iOS but please note that `_` is invalid.
   }
 }
 ```
+
+## iOS Configuration
+
+> **Breaking change in 6.0.0**: tobias no longer modifies your Xcode project during `pod install`.
+> The `tobias:` section in `pubspec.yaml` (`url_scheme`, `no_utdid`, `ios.ignore_security`,
+> `ios.universal_link`) is obsolete and is ignored. Configure the following by hand.
+
+### Swift Package Manager
+
+tobias supports both Swift Package Manager and CocoaPods. To use SPM, enable it once:
+
+```shell
+flutter config --enable-swift-package-manager
+```
+
+Nothing else is required — Flutter picks up `ios/tobias/Package.swift` automatically. If SPM is
+not enabled, the CocoaPods podspec is used as before.
+
+### 1. Info.plist
+
+Add your own url scheme (a unique string used to resume your app, `_` is **not** allowed):
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>alipay</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>your_url_scheme</string>
+        </array>
+    </dict>
+</array>
+```
+
+Allow your app to query the Alipay app:
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>alipays</string>
+</array>
+```
+
+Alipay still serves some content over HTTP, so unless you know what you are doing, add:
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+    <key>NSAllowsArbitraryLoadsInWebContent</key>
+    <true/>
+</dict>
+```
+
+### 2. Runner.entitlements
+
+Universal link is required by Alipay. Enable the **Associated Domains** capability and add the
+host of your universal link:
+
+```xml
+<key>com.apple.developer.associated-domains</key>
+<array>
+    <string>applinks:your.domain.com</string>
+</array>
+```
+
+See [example/ios/Runner](./example/ios/Runner) for a working setup.
 
 ## Payment
 
@@ -65,8 +136,9 @@ resultStatus: 9000,
 
  > NOTE:Tobias use pay_V2.
 
-> If you're facing conflicts with `utdid` on iOS, you can set `no_utdid: true` in [pubspec.yaml](./example/pubspec.yaml)
-  
+> NOTE: the `no_utdid` variant of the iOS SDK has been removed in 6.0.0. If you depend on it,
+> stay on 5.x for now.
+
 ## Auth
 
 ```

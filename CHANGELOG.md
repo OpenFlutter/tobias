@@ -1,3 +1,12 @@
+# 6.0.0-preview.3
+* iOS 支持 Swift Package Manager，与 CocoaPods 双轨并存（执行 `flutter config --enable-swift-package-manager` 即可启用）。
+* **破坏性变更**：移除 iOS 的 `no_utdid` 版本 SDK，仅保留标准版。仍需要该版本的用户请停留在 5.x。
+* **破坏性变更**：移除 `tobias_setup.rb`，不再自动修改 Xcode 工程。`pubspec.yaml` 中的 `tobias:`
+  配置项（`url_scheme`、`no_utdid`、`ios.ignore_security`、`ios.universal_link`）全部废弃，
+  请按 README 的「iOS 配置」章节手动配置 Info.plist 与 Runner.entitlements。
+* iOS 源码目录调整为 SPM 布局（`ios/tobias/Sources/tobias/`），podspec 同步更新。
+* iOS 最低部署版本提升到 13.0。
+
 # 6.0.0-preview.2
 * Fix #181
 

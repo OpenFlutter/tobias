@@ -6,6 +6,7 @@
   请按 README 的「iOS 配置」章节手动配置 Info.plist 与 Runner.entitlements。
 * iOS 源码目录调整为 SPM 布局（`ios/tobias/Sources/tobias/`），podspec 同步更新。
 * iOS 最低部署版本提升到 13.0。
+* Android Gradle Plugin 升级到 9.2.0，Gradle 升级到 9.4.1，并迁移到内置 Kotlin 2.3.20；最低 Flutter/Dart 版本提升到 3.47.0/3.13.0。
 
 # 6.0.0-preview.2
 * Fix #181

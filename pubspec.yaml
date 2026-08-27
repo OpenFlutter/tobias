@@ -4,8 +4,8 @@ version: 6.0.0-preview.3
 homepage: https://github.com/OpenFlutter/tobias
 
 environment:
-  sdk: ^3.10.0
-  flutter: ">=3.38.0"
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:

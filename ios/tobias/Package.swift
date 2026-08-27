@@ -12,12 +12,14 @@ let package = Package(
         .library(name: "tobias", targets: ["tobias"])
     ],
     dependencies: [
+        .package(name: "FlutterFramework", path: "../FlutterFramework"),
         .package(url: "https://github.com/JarvanMo/AliPaySDK-SPM.git", exact: "15.8.42")
     ],
     targets: [
         .target(
             name: "tobias",
             dependencies: [
+                .product(name: "FlutterFramework", package: "FlutterFramework"),
                 .product(name: "AlipaySDK", package: "AliPaySDK-SPM")
             ],
             resources: [

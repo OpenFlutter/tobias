@@ -11,13 +11,17 @@ let package = Package(
     products: [
         .library(name: "tobias", targets: ["tobias"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/JarvanMo/AliPaySDK-SPM.git", exact: "15.8.42")
+    ],
     targets: [
         .target(
             name: "tobias",
-            dependencies: ["AlipaySDK"],
+            dependencies: [
+                .product(name: "AlipaySDK", package: "AliPaySDK-SPM")
+            ],
             resources: [
-                .process("Resources/PrivacyInfo.xcprivacy"),
-                .copy("Resources/AlipaySDK.bundle")
+                .process("Resources/PrivacyInfo.xcprivacy")
             ],
             linkerSettings: [
                 .linkedFramework("SystemConfiguration"),
@@ -33,10 +37,6 @@ let package = Package(
                 .linkedLibrary("z"),
                 .linkedLibrary("c++")
             ]
-        ),
-        .binaryTarget(
-            name: "AlipaySDK",
-            path: "AlipaySDK.xcframework"
         )
     ]
 )

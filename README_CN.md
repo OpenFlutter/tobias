@@ -20,8 +20,7 @@ Tobias 是一个为支付宝支付 SDK 做的 Flutter 插件，支持 iOS, Andro
 
 在使用前强烈阅读[官方接入指南](https://docs.open.alipay.com/204/105051/)。
 
-1. 您需要在[pubspec.yaml](./example/pubspec.yaml)中配置`url_scheme`。 Url scheme是一个独特的字符串用来重新启动你的app
-但是请注意字符串`_`是不合法的.
+1. iOS 端需要手动配置 Xcode 工程，详见 [iOS 配置](#ios-配置)。
 2. 如果在 OpenHarmony, 请在项目中的 `module.json5` 文件中的 `module.querySchemes` 中添加 `alipays`，如下:
 
 ```json5
@@ -33,6 +32,76 @@ Tobias 是一个为支付宝支付 SDK 做的 Flutter 插件，支持 iOS, Andro
   }
 }
 ```
+
+## iOS 配置
+
+> **6.0.0 破坏性变更**：tobias 不再在 `pod install` 时自动修改你的 Xcode 工程。
+> `pubspec.yaml` 中的 `tobias:` 配置项（`url_scheme`、`no_utdid`、`ios.ignore_security`、
+> `ios.universal_link`）已全部废弃且不再生效，请按下面的说明手动配置。
+
+### Swift Package Manager
+
+tobias 同时支持 Swift Package Manager 和 CocoaPods。启用 SPM 只需执行一次：
+
+```shell
+flutter config --enable-swift-package-manager
+```
+
+之后无需额外操作，Flutter 会自动识别 `ios/tobias/Package.swift`。未启用 SPM 时仍走原来的 CocoaPods 流程。
+
+### 1. Info.plist
+
+添加你自己的 url scheme（用于支付完成后拉回你的 App 的唯一字符串，**不能**包含 `_`）：
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>alipay</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>your_url_scheme</string>
+        </array>
+    </dict>
+</array>
+```
+
+允许你的 App 查询支付宝客户端：
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>alipays</string>
+</array>
+```
+
+支付宝部分内容仍走 HTTP，除非你清楚自己在做什么，否则请添加：
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+    <key>NSAllowsArbitraryLoadsInWebContent</key>
+    <true/>
+</dict>
+```
+
+### 2. Runner.entitlements
+
+支付宝要求配置 universal link。请开启 **Associated Domains** 能力，并填入你的 universal link 域名：
+
+```xml
+<key>com.apple.developer.associated-domains</key>
+<array>
+    <string>applinks:your.domain.com</string>
+</array>
+```
+
+可参考 [example/ios/Runner](./example/ios/Runner) 中的完整配置。
 
 ## 支付
 
@@ -82,7 +151,7 @@ resultStatus: 9000,
 
 ```
 
-> 如果你在iOS上遇到了 `utdid`问题, 你可以在[pubspec.yaml](./example/pubspec.yaml)中开启`no_utdid: true`。
+> 注意：6.0.0 起已移除 iOS 的 `no_utdid` 版本 SDK。如果你依赖该版本，请暂时停留在 5.x。
 
 ## 升级到1.0.0
 

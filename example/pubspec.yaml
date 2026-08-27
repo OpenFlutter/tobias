@@ -85,9 +85,5 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
-tobias:
-  url_scheme: tobiasexample
-  ios:
-    ignore_security: true
-    universal_link: https://testdomain.com
-#  no_utdid: true
+# NOTE: Since 6.0.0 the `tobias:` section is obsolete. iOS is configured directly in
+# ios/Runner/Info.plist and ios/Runner/Runner.entitlements. See README.md.

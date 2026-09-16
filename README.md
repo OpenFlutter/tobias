@@ -18,6 +18,8 @@
 
 Tobias is a  flutter plugin for AliPaySDK, works on iOS, Android and OpenHarmony
 
+Current pre-release: `6.0.0-preview.4`.
+
 ## Getting Started
 
 I highly recommend that you read  [the official documents](https://docs.open.alipay.com/204/105051/) before using tobias.

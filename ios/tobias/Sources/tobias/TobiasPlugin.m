@@ -33,6 +33,8 @@ __weak TobiasPlugin* __tobiasPlugin;
   TobiasPlugin* instance = [[TobiasPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
   [registrar addApplicationDelegate:instance];
+  // UIScene apps deliver wallet returns through the scene lifecycle delegate.
+  [registrar addSceneDelegate:instance];
 }
 
 
@@ -73,6 +75,13 @@ __weak TobiasPlugin* __tobiasPlugin;
         }];
     }
     return NO;
+}
+
+- (BOOL)scene:(UIScene*)scene continueUserActivity:(NSUserActivity*)userActivity {
+    // Reuse SDK result delivery and its non-exclusive URL handling contract.
+    return [self application:UIApplication.sharedApplication
+       continueUserActivity:userActivity
+         restorationHandler:^(NSArray *restoredObjects) {}];
 }
 
 +(BOOL)handleOpenURL:(NSURL*)url{

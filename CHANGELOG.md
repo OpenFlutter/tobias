@@ -1,3 +1,6 @@
+# 6.0.0-preview.4
+* Merge #185
+
 # 6.0.0-preview.3
 * iOS 支持 Swift Package Manager，与 CocoaPods 双轨并存（执行 `flutter config --enable-swift-package-manager` 即可启用）。
 * **破坏性变更**：移除 iOS 的 `no_utdid` 版本 SDK，仅保留标准版。仍需要该版本的用户请停留在 5.x。

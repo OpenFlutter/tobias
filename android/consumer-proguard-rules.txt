@@ -1,6 +1,4 @@
--dontshrink
 -dontpreverify
--dontoptimize
 -dontusemixedcaseclassnames
 
 -flattenpackagehierarchy

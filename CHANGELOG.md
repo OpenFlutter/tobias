@@ -1,3 +1,6 @@
+# 6.0.0
+* 详见preview的更新日志
+
 # 6.0.0-preview.4
 * Merge #185
 
